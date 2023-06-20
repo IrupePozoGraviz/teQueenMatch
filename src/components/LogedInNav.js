@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <nav className="logged-in-nav">
       <ul className="navbar-list">
@@ -20,9 +20,10 @@ export const NavBar = () => {
         </li>
 
         <li className="navbar-item">
-          <Link to="/">Log Out</Link>
+          <Link to="/">Sign Out</Link>
         </li>
       </ul>
     </nav>
   );
 };
+export default NavBar;

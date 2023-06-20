@@ -11,7 +11,7 @@ import user from './reducers/User';
 import { Dashboard } from './components/DashBoard';
 import { EditProfilePage } from './components/EditProfilePage';
 import { Picture } from './components/profilePic'
-import Home from './pages/Home';
+import Home from './components/Home';
 import { UserCard } from './components/TinderCardTest';
 import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
@@ -40,6 +40,7 @@ export const App = () => {
           <Route path="/matched" element={<Matched />} />
           <Route path="/liked" element={<Liked />} />
           <Route path="/disliked" element={<Disliked />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </Provider>

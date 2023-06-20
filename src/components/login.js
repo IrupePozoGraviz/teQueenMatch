@@ -20,9 +20,11 @@ const LogIn = ({ setLogIn, isSignUp }) => {
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
 
+  // this handles the close button on the modal
   const handleClick = () => {
     setLogIn(false)
   }
+  // this useEffect checks if the user is logged in and redirects to the dashboard if they are logged in
   useEffect(() => {
     if (accessToken) {
       navigate('/dashboard');

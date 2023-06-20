@@ -1,30 +1,39 @@
 /* eslint-disable react/jsx-no-undef */
 // login knappar = authmodal = sign in
-import { React, useState } from 'react'
-// import { useCookies } from 'react-cookie' // install by running npm install react-cookie
-import { useSelector } from 'react-redux';
-import Nav from '../components/Nav'
-import LogIn from '../components/login'
-import { RegistrationPage } from '../components/registration'
+import { React, useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import Nav from './Nav'
+import LogIn from './login'
+import { RegistrationPage } from './registration'
+import Navbar from './LogedInNav'
+import user from '../reducers/User';
 
 const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
-  // const [cookies] = useCookies(['user'])
-  // const authToken = cookies.AuthToken
   const accessToken = useSelector((state) => state.user.accessToken);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const handleSignOut = () => {
+    dispatch(user.actions.logOut());
+    setLogIn(false);
+  };
   const handleClick = () => {
     if (accessToken) {
-      window.location.reload()
-      return
+      handleSignOut(); // Call the sign-out action if the user is already logged in
+    } else {
+      setLogIn(true);
+      setIsSignUp(true);
     }
-    setLogIn(true)
-    setIsSignUp(true)
-  }
+  };
 
   return (
     <div className="overlay">
+      {accessToken ? (
+        <Navbar /> // If the user is logged in, show the navbar
+      ) : null}
       <Nav
         authToken={accessToken}
         minimal={false}
@@ -38,9 +47,8 @@ const Home = () => {
           type="button"
           className="primary-button"
           onClick={handleClick}>
-          {accessToken ? 'Signout' : 'Create Account'}
+          {accessToken ? 'Sign Out' : 'Create Account'}
         </button>
-
         {Login && (
           <LogIn setLogIn={setLogIn} isSignUp={isSignUp}>
             {isSignUp ? <RegistrationPage /> : <LogIn />}
