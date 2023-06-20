@@ -95,8 +95,10 @@ export const Potential = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        if (json.success) {
-          setLikedUsers([...likedUsers, likePersonUserId]);
+        if (json.accessToken) {
+          setLikedUsers((prevLikedUsers) => [...prevLikedUsers, likePersonUserId]);
+        } else if (json.error) {
+          console.error(json.error);
         } else {
           console.error('Failed to save liked person');
         }
