@@ -1,37 +1,48 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Provider } from 'react-redux';
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable react/jsx-no-undef */
+// eslint-disable-next-line import/no-named-as-default
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { quiz } from 'reducers/quiz';
-import { CurrentQuestion } from 'components/CurrentQuestion';
-// import { Footer } from 'components/Footer';
-import { StartPage } from 'components/StartPage';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-`
-
-const reducer = combineReducers({
-  quiz: quiz.reducer
-});
-
-const store = configureStore({ reducer });
+import { Provider } from 'react-redux';
+import user from './reducers/User';
+// import { UserCard } from './TinderCardTest';
+// import LoginPage from './components/MockupLogin'
+import { Dashboard } from './components/DashBoard';
+import { EditProfilePage } from './components/EditProfilePage';
+import { Picture } from './components/profilePic'
+import Home from './pages/Home';
+import { UserCard } from './components/TinderCardTest';
+import { Potential } from './components/potentialmatches';
+import { Matched } from './components/matched';
+import { Liked } from './components/liked';
+import { Disliked } from './components/disliked';
 
 export const App = () => {
-  return (
-    <Container>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/quiz" element={<CurrentQuestion />} />
-          </Routes>
-        </BrowserRouter>
+  const reducer = combineReducers({
+    user: user.reducer
+  });
+  const store = configureStore({ reducer });
 
-      </Provider>
-    </Container>
-  );
+  return (
+
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tinder-cards" element={<UserCard />} />
+          {/* <Route path="/tinder-cards" element={<TinderCards />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/*     <Route path="/tinder-cards" element={<TinderCards />} /> */}
+          <Route path="/edit" element={<EditProfilePage />} />
+          <Route path="/picture" element={<Picture />} />
+          <Route path="/pot" element={<Potential />} />
+          <Route path="/matched" element={<Matched />} />
+          <Route path="/liked" element={<Liked />} />
+          <Route path="/disliked" element={<Disliked />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+
+  )
 }
