@@ -1,12 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import user from '../reducers/User';
-import { API_URL } from './Utils'
+import { API_URL } from './Utils';
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ export const RegistrationPage = () => {
   useEffect(() => {
     if (registrationSuccess) {
       // Redirect to the profile page after successful registration
-
       navigate('/dashboard');
     }
   }, [registrationSuccess, navigate]);
@@ -43,24 +41,20 @@ export const RegistrationPage = () => {
     preferences
   };
 
-  // register uses the POST method to send the user object to the API
   const register = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        // Include the access token in the request headers
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(newUser)
     };
+
     fetch(API_URL('register'), options)
       .then((response) => response.json())
       .then((data) => {
-        console.log('Register Data:', data)
-
-        console.log('Register Data:', data);
         if (data.success) {
           dispatch(user.actions.setUsername(data.response.username));
           dispatch(user.actions.setUserId(data.response._id));
@@ -75,8 +69,14 @@ export const RegistrationPage = () => {
         } else {
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
-          dispatch(user.actions.setError(data.response))
+          dispatch(user.actions.setError(data.response));
         }
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+        dispatch(user.actions.setAccessToken(null));
+        dispatch(user.actions.setUsername(null));
+        dispatch(user.actions.setError('Could not register user'));
       });
   };
 
@@ -118,13 +118,16 @@ export const RegistrationPage = () => {
             <option value="fullstack">Full Stack</option>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
-            {/* Add other preference options here */}
+            <option value="react">React</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
           </select>
         </div>
         <button type="submit">Register</button>
       </form>
       {/* Redirect to the profile page */}
-      {registrationSuccess && <p>Redirecting to profile page...</p>}
+      {registrationSuccess && <p>Redirecting to the profile page...</p>}
     </div>
   );
 };
