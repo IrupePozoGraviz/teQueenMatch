@@ -17,9 +17,9 @@ export const Liked = () => {
   const currentUser = useSelector((store) => store.user);
   const potentialMatches = useSelector((store) => store.potentialMatches);
 
-  if (!currentUser) {
+  /* if (!currentUser) {
     return <div>Loading...</div>; // Show a loading state until the user data is available
-  }
+  } */
 
   return (
     <div className="nav">

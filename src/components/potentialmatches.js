@@ -6,17 +6,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 // code is showing but dislike and like logic not working
-
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
 import NavBar from './LogedInNav';
+import './cards.css';
+
 
 export const Potential = () => {
   const [matchingList, setMatchingList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [lastDirection, setLastDirection] = useState(null);
   const [likedUsers, setLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
 
@@ -79,10 +79,13 @@ export const Potential = () => {
   }
   setLastDirection(direction);
   }; */
-  
+
   //"path": "/likedPersons/:userId",
 
-  const handleLikePerson = (likePersonUserId) => {
+  const handleLikePerson = (user) => {
+    const likePersonUserId = user._id;
+    console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
+    console.log('API URL:', API_URL(`likedPersons/${userId}`));
     fetch(API_URL(`likedPersons/${userId}`), {
       method: 'PATCH',
       headers: {
@@ -95,24 +98,26 @@ export const Potential = () => {
     })
       .then((res) => res.json())
       .then((json) => {
+        console.log('Response:', json); // Log the response data
         if (json.accessToken) {
-          setLikedUsers((prevLikedUsers) => [...prevLikedUsers, likePersonUserId]);
+          setLikedUsers(json.likedPersons);
         } else if (json.error) {
-          console.error(json.error);
+          console.error('API error:', json.error); // Log the specific error message
         } else {
           console.error('Failed to save liked person');
         }
       })
       .catch((error) => {
-        console.error('Failed to save liked Person', error);
+        console.error('Error:', error); // Log the entire error object
       });
   };
+
 
   const filteredMatchingList = matchingList.filter(
     (user) =>
       !likedUsers.includes(user.id) && !dislikedUsers.includes(user.id)
   );
-
+  console.log('filteredMatchingList', filteredMatchingList);
   return (
     <div className="nav">
       <NavBar />
@@ -131,51 +136,50 @@ export const Potential = () => {
               ) : (
                 filteredMatchingList.map((user) => (
                   <div
-                    className="TinderCard"
+                    className="person-cardfinal"
                     key={user.username}
                   >
-                        <div className="photo-container">
-                          <img
-                            src={user.profilePic}
-                            alt={`Picture of ${user.username}`}/>
-              </div>
-<div className="profile-info"> 
-                          <p>{user.username}</p>
-                          <p>{user.role}</p>
-                          <p>Preferences:</p>
-                          {user.preferences.map((pref, index) => (
-                            <p key={index}>{pref}</p>
-                          ))}
-                          <p>Info about ourselves</p>
-                          <p>Emojis to show extra</p>
-                        </div>
-                        <button
-            className="primary-button"
-                          type="button"
-                          onClick={() => handleLikePerson(user.id)}>
-                          Accept
-                        </button>
-                        <button
-            className="primary-button"
-                          type="button"
-                          onClick={() =>
-                            setDislikedUsers([...dislikedUsers, user.id])
-                          }
-                        >
-                          Decline
-                        </button>
-                      </div>
-                   
+                    <div className="photo-containerfinal">
+                      <img
+                        src={user.profilePic}
+                        alt={`Picture of ${user.username}`} />
+                    </div>
+                    <div className="profile-infofinal">
+                      <p>{user.username}</p>
+                      <p>{user.role}</p>
+                      <p>Preferences:</p>
+                      {user.preferences.map((pref, index) => (
+                        <p key={index}>{pref}</p>
+                      ))}
+                      <p>Info about ourselves</p>
+                      <p>:female-technologist::skin-tone-6: :female-technologist::skin-tone-4: :technologist::skin-tone-3:</p>
+                    </div>
+                    <section className="button-container">
+                      <button
+                        className="primary-button"
+                        type="button"
+                        onClick={() => handleLikePerson(user)}>
+                        Accept
+                      </button>
+                      <button
+                        className="primary-button"
+                        type="button"
+                        onClick={() =>
+                          setDislikedUsers([...dislikedUsers, user.id])
+                        }
+                      >
+                        Decline
+                      </button>
+                    </section>
+                  </div>
+
                 ))
               )}
             </div>
           )}
-          {lastDirection && (
-            <h2 className="infoText">You swiped {lastDirection}</h2>
-          )}
+
         </div>
       </main>
     </div>
   );
 };
-
