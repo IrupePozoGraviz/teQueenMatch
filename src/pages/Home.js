@@ -10,6 +10,7 @@ import { RegistrationPage } from '../components/registration'
 const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
+
   const accessToken = useSelector((state) => state.user.accessToken);
 
   const handleClick = () => {

@@ -82,7 +82,8 @@ export const Potential = () => {
   
   //"path": "/likedPersons/:userId",
 
-  const handleLikePerson = (likePersonUserId) => {
+  const handleLikePerson = (user) => {
+    const likePersonUserId = user._id;
     console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
     console.log('API URL:', API_URL(`likedPersons/${userId}`)); 
     fetch(API_URL(`likedPersons/${userId}`), {
@@ -99,7 +100,7 @@ export const Potential = () => {
       .then((json) => {
         console.log('Response:', json); // Log the response data
         if (json.accessToken) {
-          setLikedUsers([...likedUsers, likePersonUserId]);
+          setLikedUsers(json.likedPersons);
         } else if (json.error) {
           console.error('API error:', json.error); // Log the specific error message
         } else {
@@ -116,7 +117,7 @@ export const Potential = () => {
     (user) =>
       !likedUsers.includes(user.id) && !dislikedUsers.includes(user.id)
   );
-
+console.log('filteredMatchingList', filteredMatchingList);
   return (
     <div className="nav">
       <NavBar />
@@ -157,7 +158,7 @@ export const Potential = () => {
                         <button
             className="primary-button"
                           type="button"
-                          onClick={() => handleLikePerson(user.id)}>
+                          onClick={() => handleLikePerson(user)}>
                           Accept
                         </button>
                         <button
