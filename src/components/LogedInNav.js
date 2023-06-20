@@ -36,7 +36,7 @@ const NavBar = () => {
           <Link to="/pot">Potential matches</Link>
         </li>
 
-        <li className="navbar-item">
+        <li className="sign-out-btn">
           <button
             type="button"
             onClick={handleSignOut}>
