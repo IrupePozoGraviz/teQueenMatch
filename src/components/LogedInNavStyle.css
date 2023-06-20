@@ -1,0 +1,97 @@
+/*-------- LogedIn NavBar --------*/
+.logged-in-nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hamburger-menu {
+    display: none;
+}
+.navbar-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.navbar-item {
+    margin-right: 10px;
+}
+
+.navbar-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: rgb(254, 48, 114);
+    background-color: rgb(255, 255, 255);
+
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar-item a:hover {
+    background-color: #ddd;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-item {
+        margin-bottom: 10px;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .horizontal-menu {
+        display: none;
+    }
+}
+/* Hamburger Menu Styles */
+
+.hamburger-menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.hamburger-menu-icon span {
+    display: block;
+    background-color: rgb(254, 48, 114);
+    height: 2px;
+}
+
+.hamburger-menu-icon span:nth-child(1) {
+    width: 100%;
+}
+
+.hamburger-menu-icon span:nth-child(2),
+.hamburger-menu-icon span:nth-child(3) {
+    width: 50%;
+}
+
+.hamburger-menu-icon span:nth-child(2) {
+    margin-bottom: 4px;
+}
+
+.hamburger-menu-icon span:nth-child(3) {
+    margin-top: 4px;
+}
+
+/* Horizontal Menu Styles */
+.horizontal-menu {
+    display: block;
+}

@@ -2,24 +2,16 @@
 // login knappar = authmodal = sign in
 import { React, /* useEffect, */ useState } from 'react'
 import { useSelector/* , useDispatch */ } from 'react-redux';
-/* import { useNavigate } from 'react-router-dom' */
 import Nav from './Nav'
 import LogIn from './login'
 import { RegistrationPage } from './registration'
 import Navbar from './LogedInNav'
-/* import user from '../reducers/User'; */
 
 const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
   const accessToken = useSelector((state) => state.user.accessToken);
-  /* const dispatch = useDispatch(); */
-  /*  const navigate = useNavigate(); */
 
-  /* const handleSignOut = () => {
-    dispatch(user.actions.logOut());
-    setLogIn(false);
-  }; */
   const handleSignOut = () => {
     if (localStorage.getItem('accessToken')) {
       console.log('sign out');

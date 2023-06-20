@@ -28,8 +28,11 @@ const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
       </div>
       <Link to="/tinder-cards" className="demo-link">GO TO DASHBOARD MOCKUP ➡️ </Link>
       {authToken ? ( // if we have an auth token, show the sign out button, else show the login button
-        <Link to="/" className="nav-link">
-          <button className="nav-button" type="button">
+        <Link
+          to="/">
+          <button
+            /* className="nav-button" */
+            type="button">
             Signed in as (username here)
           </button>
         </Link>

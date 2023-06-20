@@ -85,42 +85,6 @@ nav .logo-container .logo {
   width: 100%;
 }
 
-/*-------- LogedIn NavBar --------*/
-.logged-in-nav {
-  background-color: #f2f2f2;
-  padding: 10px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.navbar-list {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
- 
-}
-
-.navbar-item {
-  margin-right: 10px;
-}
-
-.navbar-item:last-child {
-  margin-right: 0;
-}
-
-.navbar-item a {
-  text-decoration: none;
-    color: rgb(254, 48, 114);
-      background-color: rgb(255, 255, 255);
-
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.navbar-item a:hover {
-  background-color: #ddd;
-}
 
 
 /*-------- Home page --------*/
