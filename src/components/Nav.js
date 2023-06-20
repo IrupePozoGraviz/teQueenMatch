@@ -30,7 +30,7 @@ const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
       {authToken ? ( // if we have an auth token, show the sign out button, else show the login button
         <Link to="/" className="nav-link">
           <button className="nav-button" type="button">
-            Sign out
+            Signed in as (username here)
           </button>
         </Link>
       ) : (

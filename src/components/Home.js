@@ -1,25 +1,34 @@
 /* eslint-disable react/jsx-no-undef */
 // login knappar = authmodal = sign in
-import { React, useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
+import { React, /* useEffect, */ useState } from 'react'
+import { useSelector/* , useDispatch */ } from 'react-redux';
+/* import { useNavigate } from 'react-router-dom' */
 import Nav from './Nav'
 import LogIn from './login'
 import { RegistrationPage } from './registration'
 import Navbar from './LogedInNav'
-import user from '../reducers/User';
+/* import user from '../reducers/User'; */
 
 const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
   const accessToken = useSelector((state) => state.user.accessToken);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  /* const dispatch = useDispatch(); */
+  /*  const navigate = useNavigate(); */
 
-  const handleSignOut = () => {
+  /* const handleSignOut = () => {
     dispatch(user.actions.logOut());
     setLogIn(false);
+  }; */
+  const handleSignOut = () => {
+    if (localStorage.getItem('accessToken')) {
+      console.log('sign out');
+    }
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('userId');
+    window.location.reload();
   };
+
   const handleClick = () => {
     if (accessToken) {
       handleSignOut(); // Call the sign-out action if the user is already logged in
