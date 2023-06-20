@@ -135,15 +135,15 @@ export const Potential = () => {
               ) : (
                 filteredMatchingList.map((user) => (
                   <div
-                    className="person-card"
+                    className="person-cardfinal"
                     key={user.username}
                   >
-                        <div className="photo-container">
+                        <div className="photo-containerfinal">
                           <img
                             src={user.profilePic}
                             alt={`Picture of ${user.username}`}/>
               </div>
-<div className="profile-info"> 
+<div className="profile-infofinal"> 
                           <p>{user.username}</p>
                           <p>{user.role}</p>
                           <p>Preferences:</p>
@@ -151,7 +151,7 @@ export const Potential = () => {
                             <p key={index}>{pref}</p>
                           ))}
                           <p>Info about ourselves</p>
-                          <p>Emojis to show extra</p>
+                          <p>👩🏿‍💻 👩🏽‍💻 🧑🏼‍💻</p>
                         </div>
                         <section className="button-container">
                         <button

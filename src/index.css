@@ -541,6 +541,7 @@ border-radius: 18.5px;
 
 .photo-container img {
   display: flex;
+  padding: 5ox;
   flex-direction: column;
   justify-content: center;
   align-items: center;
