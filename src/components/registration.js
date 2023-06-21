@@ -24,6 +24,7 @@ export const RegistrationPage = () => {
   const handleAvatarChange = (selectedAvatar) => {
     console.log(selectedAvatar);
     setAvatar(selectedAvatar);
+    dispatch(user.actions.setSelectedAvatar(selectedAvatar));
   };
 
   useEffect(() => {
@@ -122,13 +123,13 @@ export const RegistrationPage = () => {
         <div>
           <label>Preferences:</label>
           <select multiple value={preferences} onChange={handlePreferenceChange}>
-            <option value="fullstack">Full Stack</option>
-            <option value="frontend">Frontend</option>
-            <option value="backend">Backend</option>
-            <option value="react">React</option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="java">Java</option>
+            <option value="fullstack"> Full Stack </option>
+            <option value="frontend"> Frontend </option>
+            <option value="backend"> Backend </option>
+            <option value="react"> React </option>
+            <option value="javascript"> JavaScript </option>
+            <option value="python"> Python </option>
+            <option value="java"> Java </option>
           </select>
           <AvatarSelection selectedAvatar={avatar} onAvatarChange={handleAvatarChange} />
         </div>

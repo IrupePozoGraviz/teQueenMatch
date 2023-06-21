@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
 import NavBar from './LogedInNav';
+import jolee from '../images/jolee.svg';
 import './cards.css';
 
 
@@ -70,6 +71,7 @@ export const Potential = () => {
     }
   }, [dispatch, accessToken, userId]);
 
+ 
 
   const handleLikePerson = (user) => {
     const likePersonUserId = user._id;
@@ -127,22 +129,25 @@ export const Potential = () => {
                 filteredMatchingList.map((user) => (
                   <div
                     className="person-cardfinal"
-                    key={user.username}
-                  >
+                    key={user.username}>
                     <div className="photo-containerfinal">
                       <img
-                        src={user.profilePic}
-                        alt={`Picture of ${user.username}`} />
+                        src= {jolee}
+                        alt="placeholder" />
                     </div>
                     <div className="profile-infofinal">
-                      <p>{user.username}</p>
-                      <p>{user.role}</p>
-                      <p>Preferences:</p>
+                      <div className="name-containerfinal">
+                      <p>{user.username} // {user.role}</p>
+                      </div>
+                      <div className="preferences">
+                      <p>Preferences: </p>
                       {user.preferences.map((pref, index) => (
                         <p key={index}>{pref}</p>
                       ))}
-                      <p>Info about ourselves</p>
-                      <p>:female-technologist::skin-tone-6: :female-technologist::skin-tone-4: :technologist::skin-tone-3:</p>
+                      </div>
+                      <div className="emojis">
+                      <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
+                      </div>
                     </div>
                     <section className="button-container">
                       <button

@@ -13,7 +13,8 @@ const user = createSlice({
     userId: null,
     likedPersons: null,
     error: null,
-    isOwner: false // Add the isOwner flag with an initial value of false
+    isOwner: false, // Add the isOwner flag with an initial value of false
+    selectedAvatar: null
   },
 
   reducers: {
@@ -46,6 +47,9 @@ const user = createSlice({
     },
     setIsOwner: (store, action) => {
       store.isOwner = action.payload;
+    },
+    setSelectedAvatar: (store, action) => {
+      store.selectedAvatar = action.payload;
     },
     setAccessToken: (store, action) => {
       store.accessToken = action.payload;
