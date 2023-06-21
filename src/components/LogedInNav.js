@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import './LogedInNavStyle.css';
 
-<<<<<<< HEAD
 const handleSignOut = () => {
   if (localStorage.getItem('accessToken')) {
     console.log('sign out');
@@ -13,8 +12,6 @@ const handleSignOut = () => {
   window.location.reload();
 };
 
-=======
->>>>>>> master
 const NavBar = () => {
   return (
     <nav
@@ -39,7 +36,6 @@ const NavBar = () => {
           <Link to="/pot">Potential matches</Link>
         </li>
 
-<<<<<<< HEAD
         <li className="sign-out-btn">
           <button
             type="button"
@@ -50,17 +46,9 @@ const NavBar = () => {
           </button>
           {}
 
-=======
-        <li className="navbar-item">
-          <Link to="/">Sign Out</Link>
->>>>>>> master
         </li>
       </ul>
     </nav>
   );
 };
-<<<<<<< HEAD
 export default NavBar;
-=======
-export default NavBar;
->>>>>>> master

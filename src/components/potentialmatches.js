@@ -70,25 +70,11 @@ export const Potential = () => {
     }
   }, [dispatch, accessToken, userId]);
 
-  /* const swiped = (direction, likePersonUserId) => {
-  if (direction === 'right') {
-    handleLikePerson(likePersonUserId);
-  } else if (direction === 'left') {
-    setDislikedUsers(prevDislikedUsers => [...prevDislikedUsers, likePersonUserId]);
-  }
-  setLastDirection(direction);
-  }; */
-
-  //"path": "/likedPersons/:userId",
 
   const handleLikePerson = (user) => {
     const likePersonUserId = user._id;
     console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
-<<<<<<< HEAD
     console.log('API URL:', API_URL(`likedPersons/${userId}`));
-=======
-    console.log('API URL:', API_URL(`likedPersons/${userId}`)); 
->>>>>>> master
     fetch(API_URL(`likedPersons/${userId}`), {
       method: 'PATCH',
       headers: {
@@ -121,11 +107,7 @@ export const Potential = () => {
     (user) =>
       !likedUsers.includes(user.id) && !dislikedUsers.includes(user.id)
   );
-<<<<<<< HEAD
   console.log('filteredMatchingList', filteredMatchingList);
-=======
-console.log('filteredMatchingList', filteredMatchingList);
->>>>>>> master
   return (
     <div className="nav">
       <NavBar />
@@ -147,7 +129,6 @@ console.log('filteredMatchingList', filteredMatchingList);
                     className="person-cardfinal"
                     key={user.username}
                   >
-<<<<<<< HEAD
                     <div className="photo-containerfinal">
                       <img
                         src={user.profilePic}
@@ -182,51 +163,10 @@ console.log('filteredMatchingList', filteredMatchingList);
                     </section>
                   </div>
 
-=======
-                        <div className="photo-containerfinal">
-                          <img
-                            src={user.profilePic}
-                            alt={`Picture of ${user.username}`}/>
-              </div>
-<div className="profile-infofinal"> 
-                          <p>{user.username}</p>
-                          <p>{user.role}</p>
-                          <p>Preferences:</p>
-                          {user.preferences.map((pref, index) => (
-                            <p key={index}>{pref}</p>
-                          ))}
-                          <p>Info about ourselves</p>
-                          <p>👩🏿‍💻 👩🏽‍💻 🧑🏼‍💻</p>
-                        </div>
-                        <section className="button-container">
-                        <button
-            className="primary-button"
-                          type="button"
-                          onClick={() => handleLikePerson(user)}>
-                          Accept
-                        </button>
-                        <button
-            className="primary-button"
-                          type="button"
-                          onClick={() =>
-                            setDislikedUsers([...dislikedUsers, user.id])
-                          }
-                        >
-                          Decline
-                        </button>
-                        </section>
-                      </div>
-                   
->>>>>>> master
                 ))
               )}
             </div>
           )}
-<<<<<<< HEAD
-
-=======
-          
->>>>>>> master
         </div>
       </main>
     </div>
