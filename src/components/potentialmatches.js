@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
-import { NavBar } from './LogedInNav';
+import NavBar from './LogedInNav';
 import './cards.css';
 
 

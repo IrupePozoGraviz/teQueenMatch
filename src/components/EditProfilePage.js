@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from './Utils';
 import { Picture } from './profilePic';
-import { NavBar } from './LogedInNav';
+import NavBar from './LogedInNav';
 
 export const EditProfilePage = () => {
   const navigate = useNavigate();

@@ -1,15 +1,21 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TeQueenMatchStor from '../images/TeQueenMatchStor.png';
 import MentorLogo from '../images/MentorLogo.png';
 
 // this const is a functional component that takes in props and returns a nav bar with a logo and a login button if we're not logged in. It also sets up an event handler for the login button that sets the show modal state to true and the is sign up state to false
 
 const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    setLogIn(true);
-    setIsSignUp(false);
+    if (authToken) {
+      navigate('/');
+    } else {
+      setLogIn(true);
+      setIsSignUp(false);
+    }
   };
 
   return (
@@ -21,13 +27,23 @@ const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
           alt="logo" />
       </div>
       <Link to="/tinder-cards" className="demo-link">GO TO DASHBOARD MOCKUP ➡️ </Link>
-      {!authToken && !minimal && ( // only show the login button if we're not logged in and we're not on the minimal page
+      {authToken ? ( // if we have an auth token, show the sign out button, else show the login button
+        <Link to="/" className="nav-link">
+          <button className="nav-button" type="button">
+            Sign out
+          </button>
+        </Link>
+      ) : (
         <button
           className="nav-button"
           type="button"
           onClick={handleClick}
           disabled={Login}>
-                    Log in
+          <Link
+            to="/"
+            className="nav-link">
+            Login
+          </Link>
         </button>
       )}
     </nav>

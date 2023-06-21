@@ -51,7 +51,20 @@ const user = createSlice({
       store.accessToken = action.payload;
       localStorage.setItem('accessToken', action.payload);
     }
-
+  },
+  logOut: (store) => {
+    store.username = null;
+    store.email = '';
+    store.firstName = '';
+    store.lastName = '';
+    store.role = '';
+    store.preferences = '';
+    store.accessToken = null;
+    store.userId = null;
+    store.likedPersons = null;
+    store.error = null;
+    store.isOwner = false;
+    localStorage.removeItem('accessToken');
   }
 });
 
@@ -65,7 +78,8 @@ export const {
   setAccessToken,
   setUserId,
   setError,
-  setIsOwner
+  setIsOwner,
+  logOut
 } = user.actions;
 
 export default user;
