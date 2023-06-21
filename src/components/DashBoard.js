@@ -13,7 +13,11 @@ of potential matches klickhere to see them how could I build taht/*/
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import  NavBar from './LogedInNav';
+=======
+import NavBar from './LogedInNav';
+>>>>>>> master
 
 
 export const Dashboard = () => {
