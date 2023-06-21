@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import user from '../reducers/User';
 import { API_URL } from './Utils';
-import AvatarSelection from './avatars';
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -18,14 +17,8 @@ export const RegistrationPage = () => {
   const [role, setRole] = useState('');
   const [preferences, setPreferences] = useState([]);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [avatar, setAvatar] = useState('');
-  const dispatch = useDispatch();
 
-  const handleAvatarChange = (selectedAvatar) => {
-    console.log(selectedAvatar);
-    setAvatar(selectedAvatar);
-    dispatch(user.actions.setSelectedAvatar(selectedAvatar));
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (registrationSuccess) {
@@ -131,7 +124,6 @@ export const RegistrationPage = () => {
             <option value="python"> Python </option>
             <option value="java"> Java </option>
           </select>
-          <AvatarSelection selectedAvatar={avatar} onAvatarChange={handleAvatarChange} />
         </div>
         <button type="submit">Register</button>
       </form>

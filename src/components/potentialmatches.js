@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
 import NavBar from './LogedInNav';
-import jolee from '../images/jolee.svg';
+import placeholder from '../images/placeholder.png';
 import './cards.css';
 
 
@@ -115,10 +115,10 @@ export const Potential = () => {
       <NavBar />
       <main className="dashboard">
         <div className="box-container">
-          <div className="profile-header">
-            <h1>{`${currentUser.username}, here are your potential mentors/mentees`}</h1>
-            <p>{`Your role: ${currentUser.role}`}</p>
-          </div>
+        <div className="profile-header">
+  <h1>{`${currentUser.username}, here are your potential ${currentUser.role === 'mentee' ? 'mentors' : 'mentees'}`}</h1>
+  <p>{`Your role: ${currentUser.role}`}</p>
+</div>
           {loading ? (
             'Loading...'
           ) : (
@@ -132,7 +132,7 @@ export const Potential = () => {
                     key={user.username}>
                     <div className="photo-containerfinal">
                       <img
-                        src= {jolee}
+                        src= {placeholder}
                         alt="placeholder" />
                     </div>
                     <div className="profile-infofinal">
