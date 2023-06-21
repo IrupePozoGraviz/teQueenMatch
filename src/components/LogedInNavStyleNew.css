@@ -1,0 +1,127 @@
+.styled-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.sign-out-btn {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.header-logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--neutral-dark);
+    text-decoration: none;
+}
+
+.toggle-button {
+  /*   display: none; */
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+}
+
+.menu-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-nav.open {
+    display: none;
+}
+
+.ul-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.ul-elements li {
+    list-style-type: none;
+    margin: 3px;
+}
+
+.ul-elements li a {
+    display: block;
+    padding: 10px;
+    color: var(--neutral-dark);
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--neutral-dark);
+}
+
+.ul-elements li a:hover {
+    text-decoration: underline 3px var(--primary-color-4);
+}
+
+.ul-elements li a:active {
+    color: var(--primary-color-4);
+}
+
+@media (min-width: 668px) {
+/*     .header-logo {
+        display: none;
+    } */
+
+    .toggle-button {
+        display: block;
+    }
+
+    .menu-nav {
+        justify-content: flex-end;
+        margin-right: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ul-elements {
+        flex-direction: row;
+    }
+
+    .li-elements {
+        display: flex;
+    }
+
+    .ul-elements li {
+        margin-top: 30px;
+    }
+
+    .ul-elements li a {
+        text-transform: none;
+        border-bottom: none;
+    }
+
+    .ul-elements li a:hover {
+        text-decoration: underline 3px var(--primary-color-4);
+    }
+
+    .ul-elements li a:active {
+        color: var(--primary-color-4);
+    }
+
+    .ul-elements li a {
+        font-size: 1.5rem;
+        line-height: 29px;
+    }
+}
