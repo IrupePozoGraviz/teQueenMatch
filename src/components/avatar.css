@@ -1,0 +1,14 @@
+.avatar{
+display: flex;
+}
+.avatar-input{
+display: flex;
+
+}
+
+
+.avatar-image img{
+display: flex;
+	width: 100%;
+
+}
