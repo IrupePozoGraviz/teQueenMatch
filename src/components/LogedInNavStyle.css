@@ -1,10 +1,11 @@
-/*-------- LogedIn NavBar --------*/
+/*--------  STYLE MOBILE AND DESKTOP  --------*/
 .logged-in-nav {
     background-color: #f2f2f2;
     padding: 10px;
     justify-content: center;
     padding: 20px;
 }
+
 
 .hamburger-menu {
     display: none;
@@ -16,10 +17,18 @@
     padding: 0;
 
 }
+
 .sign-out-btn {
-    
-   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
+
+    
 
 .navbar-item {
     margin-right: 10px;
@@ -40,6 +49,23 @@
 .navbar-item a:hover {
     background-color: #ddd;
 }
+  .sign-out-btn .icon {
+      display: inline-block;
+  }
+
+  .sign-out-btn .home-btn .hover-text {
+      display: none;
+  }
+
+  .sign-out-btn:hover .icon {
+      display: none;
+  }
+
+  .sign-out-btn:hover .hover-text {
+      display: inline-block;
+  }
+
+
 
 /* Styling for tablet devices */
 @media (max-width: 1024px) {
@@ -64,6 +90,9 @@
             }
             .navbar-item a:hover {
                 background-color: #ddd;
+            }
+            .hover-text {
+                display: none;
             }
         }
 
@@ -90,6 +119,9 @@
             }
             .navbar-item a:hover {
                 background-color: #ddd;
+            }
+            .hover-text {
+                position: inherit;
             }
         }
 

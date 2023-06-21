@@ -22,7 +22,6 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => {
     document.addEventListener('mousedown', handleOutsideClick);
     window.addEventListener('scroll', handleScroll);
 
-    // the ahndleOutsideClick and handleScroll is for the menu to close when you click outside of it or scroll
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
       window.removeEventListener('scroll', handleScroll);
@@ -41,18 +40,14 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => {
   return (
     <nav
       className="styled-nav-bar">
-      <Link to="/" className="header-logo">
+      <Link
+        to="/"
+        className="header-logo">
+        <span className="hover-text">Home</span>
         <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
           <path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
         </svg>
         <SignOutButton />
-        {/* <button
-          type="button"
-          onClick={handleSignOut}>
-          {localStorage.getItem('accessToken') ? (
-            <Link to="/" className="sign-out-btn">Sign Out</Link>
-          ) : (<Link to="/">Sign In</Link>)}
-        </button> */}
       </Link>
       <button
         className="toggle-button"

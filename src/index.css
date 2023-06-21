@@ -84,7 +84,9 @@ nav .logo-container {
 nav .logo-container .logo {
   width: 100%;
 }
-
+.logo-container .logo img {
+  width: 100%;
+}
 
 
 /*-------- Home page --------*/

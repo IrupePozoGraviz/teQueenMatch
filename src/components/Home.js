@@ -5,7 +5,7 @@ import { useSelector/* , useDispatch */ } from 'react-redux';
 import Nav from './Nav'
 import LogIn from './login'
 import { RegistrationPage } from './registration'
-import NavbarNew from './LogedInNavNew'
+import NavBarNew from './LogedInNavNew'
 
 const Home = () => {
   const [Login, setLogIn] = useState(false)
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className="overlay">
       {accessToken ? (
-        <NavbarNew /> // If the user is logged in, show the navbar
+        <NavBarNew /> // If the user is logged in, show the navbar
       ) : null}
       <Nav
         authToken={accessToken}
