@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from './Utils';
 import { Picture } from './profilePic';
-import NavBar from './LogedInNav';
+import NavBarNew from './LogedInNavNew';
 
 export const EditProfilePage = () => {
   const navigate = useNavigate();
@@ -93,7 +93,8 @@ export const EditProfilePage = () => {
 
   return (
     <>
-      <NavBar /><div className="edit-container">
+      <NavBarNew />
+      <div className="edit-container">
       <h2>Edit Profile</h2>
       <Picture className="picture-container" />
       <section className="form-container">

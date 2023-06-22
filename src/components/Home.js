@@ -5,7 +5,7 @@ import { useSelector/* , useDispatch */ } from 'react-redux';
 import Nav from './Nav'
 import LogIn from './login'
 import { RegistrationPage } from './registration'
-import Navbar from './LogedInNav'
+import NavBarNew from './LogedInNavNew'
 
 const Home = () => {
   const [Login, setLogIn] = useState(false)
@@ -23,6 +23,8 @@ const Home = () => {
     window.location.reload();
   };
 
+  // this handleclick is not working
+
   const handleClick = () => {
     if (accessToken) {
       handleSignOut(); // Call the sign-out action if the user is already logged in
@@ -35,7 +37,7 @@ const Home = () => {
   return (
     <div className="overlay">
       {accessToken ? (
-        <Navbar /> // If the user is logged in, show the navbar
+        <NavBarNew /> // If the user is logged in, show the navbar
       ) : null}
       <Nav
         authToken={accessToken}
@@ -50,7 +52,7 @@ const Home = () => {
           type="button"
           className="primary-button"
           onClick={handleClick}>
-          {accessToken ? 'Sign Out' : 'Create Account'}
+          {accessToken ? 'Go find your match!' : 'Create Account'}
         </button>
         {Login && (
           <LogIn setLogIn={setLogIn} isSignUp={isSignUp}>
