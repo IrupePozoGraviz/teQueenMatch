@@ -58,7 +58,6 @@
     .navbar-item a {
             text-decoration: none;
                 color: rgb(254, 48, 114);
-                background-color: rgb(254, 48, 114);
                 padding: -6px;
                 border-radius: 5px;
             }
@@ -84,7 +83,6 @@
     .navbar-item a {
             text-decoration: none;
                 color: rgb(254, 48, 114);
-                background-color: rgb(254, 48, 114);
                 padding: 0;
                 border-radius: 5px;
             }

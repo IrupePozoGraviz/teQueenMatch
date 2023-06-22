@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
-import { setError } from '../reducers/User';
+import user, { setError } from '../reducers/User';
 import NavBar from './LogedInNav';
 import placeholder from '../images/placeholder.png';
 import './cards.css';
@@ -19,12 +19,24 @@ export const Potential = () => {
   const [loading, setLoading] = useState(true);
   const [likedUsers, setLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
-
+const [filteredUsers, setFilteredUsers] = useState([]);
   const userId = useSelector((store) => store.user.userId);
   let accessToken = useSelector((store) => store.user.accessToken);
   accessToken = !accessToken && localStorage.getItem('accessToken');
   const currentUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
+  const filterUsers = () => {
+    const result = matchingList.filter((noUser) => {
+      const likedIndex = currentUser.likedPersons.findIndex(
+        (likedPerson) => likedPerson.id === noUser._id
+      );
+      return likedIndex === -1;
+  });
+  
+    setFilteredUsers(result);
+  };
+  
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -38,40 +50,26 @@ export const Potential = () => {
           }
         };
 
-        const response = await fetch(API_URL('/users'), options);
+        const response = await fetch(API_URL(`users/${userId}`), options);
         const data = await response.json();
 
         if (data.success) {
-          let filteredUsers = data.response.users;
-
-          if (currentUser.role === 'mentor') {
-            filteredUsers = data.response.users.filter(
-              (user) => user.role === 'mentee'
-            );
-          } else {
-            filteredUsers = data.response.users.filter(
-              (user) => user.role === 'mentor'
-            );
-          }
-
-          setMatchingList(filteredUsers);
+         const filteredUsers = data.response.users;
+         setMatchingList(filteredUsers);
           dispatch(setError(null));
         } else {
-          dispatch(setError('Failed to fetch user profile.'));
+          dispatch(setError(data.error));
         }
       } catch (error) {
-        dispatch(setError(error.message));
+        dispatch(setError(error));
       } finally {
         setLoading(false);
       }
     };
-
     if (userId) {
       fetchUsers();
     }
-  }, [dispatch, accessToken, userId]);
-
- 
+  }, [dispatch, userId, accessToken]);
 
   const handleLikePerson = (user) => {
     const likePersonUserId = user._id;
@@ -91,7 +89,8 @@ export const Potential = () => {
       .then((json) => {
         console.log('Response:', json); // Log the response data
         if (json.accessToken) {
-          setLikedUsers(json.likedPersons);
+          setLikedUsers(json.likedPersons.map((person) => person.id));
+          filterUsers()
         } else if (json.error) {
           console.error('API error:', json.error); // Log the specific error message
         } else {
@@ -103,8 +102,6 @@ export const Potential = () => {
       });
   };
   
-
-
   const filteredMatchingList = matchingList.filter(
     (user) =>
       !likedUsers.includes(user.id) && !dislikedUsers.includes(user.id)
@@ -160,7 +157,7 @@ export const Potential = () => {
                         className="primary-button"
                         type="button"
                         onClick={() =>
-                          setDislikedUsers([...dislikedUsers, user.id])
+                          setDislikedUsers([...dislikedUsers, user._id])
                         }
                       >
                         Decline
