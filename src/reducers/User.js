@@ -80,7 +80,8 @@ export const {
   setUserId,
   setError,
   setIsOwner,
-  logOut
+  logOut,
+  setLikedPersons
 } = user.actions;
 
 export default user;

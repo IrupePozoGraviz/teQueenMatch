@@ -8,7 +8,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
-import user, { setError } from '../reducers/User';
+/* import user, { setError, setLiked } from '../reducers/User'; */
+import { setError, setLikedPersons } from '../reducers/User';
 import NavBarNew from './LogedInNavNew';
 import placeholder from '../images/placeholder.png';
 import './cards.css';
@@ -19,14 +20,14 @@ export const Potential = () => {
   const [loading, setLoading] = useState(true);
   const [likedUsers, setLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
-const [filteredUsers, setFilteredUsers] = useState([]);
+/* const [filteredUsers, setFilteredUsers] = useState([]); */
   const userId = useSelector((store) => store.user.userId);
   let accessToken = useSelector((store) => store.user.accessToken);
   accessToken = !accessToken && localStorage.getItem('accessToken');
   const currentUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  const filterUsers = () => {
+/*   const filterUsers = () => {
     const result = matchingList.filter((noUser) => {
       const likedIndex = currentUser.likedPersons.findIndex(
         (likedPerson) => likedPerson.id === noUser._id
@@ -35,10 +36,11 @@ const [filteredUsers, setFilteredUsers] = useState([]);
   });
   
     setFilteredUsers(result);
-  };
+  }; */
   
 
   useEffect(() => {
+    console.log("current user", currentUser)
     const fetchUsers = async () => {
       setLoading(true);
       try {
@@ -69,7 +71,7 @@ const [filteredUsers, setFilteredUsers] = useState([]);
     if (userId) {
       fetchUsers();
     }
-  }, [dispatch, userId, accessToken]);
+  }, [dispatch, userId, accessToken, likedUsers]);
 
   const handleLikePerson = (user) => {
     const likePersonUserId = user._id;
@@ -89,8 +91,9 @@ const [filteredUsers, setFilteredUsers] = useState([]);
       .then((json) => {
         console.log('Response:', json); // Log the response data
         if (json.accessToken) {
-          setLikedUsers(json.likedPersons.map((person) => person.id));
-          filterUsers()
+          /* setLikedUsers(json.likedPersons.map((person) => person.id)); */
+          /*     filterUsers() */
+          dispatch(setLikedPersons(json.likedPersons));
         } else if (json.error) {
           console.error('API error:', json.error); // Log the specific error message
         } else {
