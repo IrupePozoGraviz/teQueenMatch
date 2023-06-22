@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
-import NavBar from './LogedInNav';
+import NavBarNew from './LogedInNavNew';
 import placeholder from '../images/placeholder.png';
 import './cards.css';
 
@@ -112,7 +112,7 @@ export const Matched = () => {
 
   return (
     <div className="nav">
-      <NavBar />
+      <NavBarNew />
       <main className="dashboard">
         <div className="box-container">
         <div className="profile-header">

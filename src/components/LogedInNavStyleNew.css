@@ -1,116 +1,125 @@
+
+-----
+
 .styled-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-.sign-out-btn {
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-}
-
-.header-logo {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: var(--neutral-dark);
-    text-decoration: none;
     display: flex;
-    flex-direction: row;
-}
-
-.toggle-button {
-    /*   display: none; */
-    top: 20px;
-    right: 60px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    z-index: 10;
-}
-
-.menu-nav {
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-.hamburger-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    z-index: 10;
-}
-.menu-nav.open {
-    display: none;
-}
-
-.ul-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.ul-elements li {
-    list-style-type: none;
-    margin: 3px;
-}
-
-.ul-elements li a {
-    display: block;
+    justify-content: space-between;
     padding: 10px;
-    color: var(--neutral-dark);
-    font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 24px;
+    background-color: rgba(255, 192, 203, 0.8);
+  }
+  
+  .header-logo {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--neutral-dark);
-}
-
-.ul-elements li a:hover {
-    text-decoration: underline 3px var(--primary-color-4);
-}
-
-.ul-elements li a:active {
-    color: var(--primary-color-4);
-}
-@media (max-width: 767px) {
-    .sign-out-btn .icon {
-        display: none;
+    color: #333;
+  }
+  
+  .hover-text {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+  
+  .hamburger-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .toggle-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .menu-nav {
+    display: flex;
+  }
+  
+  .menu-nav.open {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .ul-elements {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .li-elements {
+    margin-right: 10px;
+  }
+  
+  .ul-elements.right-aligned {
+    justify-content: flex-end;
+  }
+  
+  .li-elements > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .li-elements > a:hover {
+    background-color: #ddd;
+  }
+  /* ---------- MOBILE (MAX-WIDTH 767PX) ---------- */
+  @media (max-width: 768px) {
+    .toggle-button {
+      display: block;
     }
+  
+    .menu-nav {
+      display: none;
+      position: absolute;
+      top: 5%;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(255, 192, 203, 0.5);
+      border-radius: 5px;
+    }
+  
+    .menu-nav.open {
+      display: flex;
+    }
+  
+    .ul-elements {
+      flex-direction: column;
+    }
+  
+    .ul-elements.right-aligned {
+      justify-content: flex-start;
+    }
+  
+    .li-elements {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    .li-elements:last-child {
+      margin-bottom: 0;
+    }
+  
+    .li-elements > a {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+  
 
-    .sign-out-btn .hover-text {
-        display: inline-block;
-    }}
+
+
+
+/* ---------- TABLET (MIN-WIDTH 668PX)  ---------- */
 
 @media (min-width: 668px) {
-    /*     .header-logo {
-        display: none;
-    } */
-
-    .toggle-button {
-        display: block;
-    }
-
-    .menu-nav {
-        justify-content: flex-end;
-        margin-right: 25px;
-    }
+   
       .sign-out-btn .icon {
     display: inline-block;
   }
@@ -128,22 +137,14 @@
   }
 }
 
+/* ---------- DESKTOP (MIN-WIDTH 1024PX)  ---------- */
+
 @media (min-width: 1024px) {
-    .ul-elements {
-        flex-direction: row;
-    }
-
-    .li-elements {
-        display: flex;
-    }
-
-    .ul-elements li {
-        margin-top: 30px;
-    }
-
+   
     .ul-elements li a {
         text-transform: none;
         border-bottom: none;
+        font-size: 16px;
     }
 
     .ul-elements li a:hover {

@@ -4,7 +4,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { mentees } from './UserData';
-import NavBar from './LogedInNav';
+import NavBarNew from './LogedInNavNew';
 
 export const UserCard = () => {
   const [currentMenteeIndex, setCurrentMenteeIndex] = useState(0);
@@ -38,7 +38,7 @@ export const UserCard = () => {
   return (
 
     <div className="">
-      <NavBar />
+      <NavBarNew />
       <div className="person-card">
         <div className="profile-header">
           <div className="Lizzo">

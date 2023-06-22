@@ -13,7 +13,7 @@ of potential matches klickhere to see them how could I build taht/*/
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import  NavBar from './LogedInNav';
+import  NavBarNew from './LogedInNavNew';
 
 
 export const Dashboard = () => {
@@ -26,7 +26,7 @@ export const Dashboard = () => {
 
   return (
     <div className="nav">
-      <NavBar />
+      <NavBarNew />
       <main className="dashboard">
         <div className="box-container">
           <div className="profile-header">

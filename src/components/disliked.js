@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import NavBar from './LogedInNav';
+import NavBarNew from './LogedInNavNew';
 
 export const Disliked = () => {
   const currentUser = useSelector((store) => store.user);
