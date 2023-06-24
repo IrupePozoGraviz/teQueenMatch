@@ -29,6 +29,7 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
+    z-index: 3;
   }
   
   .menu-nav {
@@ -83,17 +84,18 @@
 .profile-container p {
   margin: 0;
 }
-  /* ---------- MOBILE (MAX-WIDTH 767PX) ---------- */
+  /* ---------- Alla små och stora Mobiler---------- */
   @media (max-width: 768px) {
     
     .toggle-button {
       display: block;
+   
     }
   
     .menu-nav {
       display: none;
       position: absolute;
-      top: 5%;
+      top: 0%;
       right: 0%;
       padding: 10px;
       background-color: pink;
@@ -127,15 +129,7 @@
       padding: 5px;
       font-size: 14px;
     }
-  }
   
-
-
-
-
-/* ---------- TABLET (MIN-WIDTH 668PX)  ---------- */
-
-@media (min-width: 668px) {
    
       .sign-out-btn .icon {
     display: inline-block;
