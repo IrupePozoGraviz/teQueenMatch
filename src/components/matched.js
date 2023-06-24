@@ -11,7 +11,7 @@ import { API_URL } from './Utils';
 import { setError } from '../reducers/User';
 import NavBarNew from './LogedInNavNew';
 import placeholder from '../images/placeholder.png';
-import './cards.css';
+import './/css/potentialmatches.css';
 
 
 export const Matched = () => {

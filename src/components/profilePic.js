@@ -11,7 +11,6 @@ import { API_URL } from './Utils';
 export const Picture = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
   const userId = useSelector((store) => store.user.userId);
   const accessToken = useSelector((store) => store.user.accessToken) || localStorage.getItem('accessToken');
 
@@ -45,17 +44,11 @@ export const Picture = () => {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleUrlChange = (event) => {
-    setImageUrl(event.target.value);
-  };
-
   const uploadProfilePic = async () => {
     try {
       const formData = new FormData();
       if (selectedFile) {
         formData.append('profilePicture', selectedFile);
-      } else if (imageUrl) {
-        formData.append('imageUrl', imageUrl);
       } else {
         console.log('No file or URL selected for upload.');
         return;
@@ -101,12 +94,10 @@ export const Picture = () => {
 
   return (
     <div className="picture-container">
-      <h2>Profile Picture</h2>
       {profilePicture && <img src={profilePicture} alt="Profile" />}
       <input type="file" onChange={handleFileChange} />
-      <input type="text" placeholder="Enter Image URL" value={imageUrl} onChange={handleUrlChange} />
-      <button className="upload" type="submit" onClick={uploadProfilePic}>Upload Picture</button>
-      <button className="delete" type="submit" onClick={deleteProfilePic}>Delete Picture</button>
+      <button className="secondary-button" type="submit" onClick={uploadProfilePic}>Upload Picture</button>
+      <button className="secondary-button" type="submit" onClick={deleteProfilePic}>Delete Picture</button>
     </div>
   );
 };
