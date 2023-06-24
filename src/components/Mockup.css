@@ -1,0 +1,58 @@
+/*-------- mockup --------*/
+
+.person-card {
+    margin: 20px 30px;
+    border: solid 5px pink;
+    border-radius: 20px;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(247, 244, 244) 0%,
+            rgb(220, 219, 219) 100%);
+}
+
+.photo-container img {
+    display: flex;
+    padding: 5ox;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: relative;
+    width: 350px;
+    height: 400px;
+
+    background: linear-gradient(to bottom, rgb(247, 244, 244) 0%,
+            rgb(220, 219, 219) 100%);
+    border: 1px solid #FFFFFF;
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.Lizzo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.loged-in-text {
+    color: lightblue;
+}
+
+.loged-in-text {
+    align-self: flex-end;
+}

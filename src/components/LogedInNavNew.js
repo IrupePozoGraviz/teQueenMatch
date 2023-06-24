@@ -58,20 +58,19 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
         onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Hamburger_icon.png`}
+            src={`${process.env.PUBLIC_URL}/assets/close.png`}
             alt="Hamburger Icon"
-            className="hamburger-icon" />
+            className="close-icon" />
         ) : (
           <img
-            src={`${process.env.PUBLIC_URL}/assets/close.png`}
-            alt="Close Icon"
-            className="close-icon" />
+            src={`${process.env.PUBLIC_URL}/assets/Hamburger_icon.png`}
+            alt="Close Icon" />
         )}
       </button>
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
-        <ul className="ul-elements right-aligned">
+        <ul className="ul-elements">
           <li className="li-elements">
             <Link to="/dashboard">{navOne}My dashboard</Link>
           </li>

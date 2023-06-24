@@ -82,7 +82,7 @@ export const RegistrationPage = () => {
   };
 
   return (
-    <div>
+    <div className="onboarding">
       <h2>Registration Page</h2>
       <form onSubmit={register}>
         <div>
