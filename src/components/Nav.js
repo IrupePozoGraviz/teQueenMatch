@@ -20,7 +20,7 @@ const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
   };
 
   return (
-    <nav>
+    <nav className="navigation">
       <div className="logo-container">
         <img
           className="logo"

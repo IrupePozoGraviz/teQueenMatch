@@ -2,12 +2,14 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './LogedInNavStyleNew.css';
 import SignOutButton from './SignOut';
 
 const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOne, navTwo, navThree, navFour, navFive are the names of the links in the nav bar that are passed in as props from the dashboard page (see Dashboard.js) and can be renamed to whatever you want. the purpurse of this is to make the nav bar reusable for other pages that need a nav bar with different links in it.
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const currentUser = useSelector((store) => store.user);
   // this useEffect is for the menu to close when you click outside of it or scroll
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -52,7 +54,12 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
           <path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
         </svg>
         <SignOutButton />
+        <div className="profile-container">
+          <h1>{currentUser.username}</h1>
+          <p>{` Your role: ${currentUser.role}`}</p>
+        </div>
       </Link>
+
       <button
         className="toggle-button"
         onClick={() => setIsOpen(!isOpen)}>

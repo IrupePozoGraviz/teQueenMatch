@@ -30,8 +30,7 @@ export const Dashboard = () => {
       <main className="dashboard">
         <div className="box-container">
           <div className="profile-header">
-            <h1>{`Welcome ${currentUser.username}`}</h1>
-            <p>{`Role: ${currentUser.role}`}</p>
+            
           </div>
           <section className="potentialmatches">
             <h2>You have {potentialMatches ? potentialMatches.length : 0} potential matches</h2>

@@ -1,12 +1,9 @@
 
------
-
-.styled-nav-bar {
+  .styled-nav-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background-color: rgba(255, 192, 203, 0.8);
+    margin-top: 20px;
   }
   
   .header-logo {
@@ -69,8 +66,22 @@
   .li-elements > a:hover {
     background-color: #ddd;
   }
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    background-color: white;
+}
+  .profile-container h1,
+.profile-container p {
+  margin: 0;
+}
   /* ---------- MOBILE (MAX-WIDTH 767PX) ---------- */
   @media (max-width: 768px) {
+    
     .toggle-button {
       display: block;
     }
@@ -79,10 +90,12 @@
       display: none;
       position: absolute;
       top: 5%;
-      right: 0;
+      right: 0%;
       padding: 10px;
-      background-color: rgba(255, 192, 203, 0.5);
+      background-color: pink;
       border-radius: 5px;
+      z-index: 2;
+      margin-top: 10px;
     }
   
     .menu-nav.open {
@@ -140,6 +153,7 @@
 /* ---------- DESKTOP (MIN-WIDTH 1024PX)  ---------- */
 
 @media (min-width: 1024px) {
+
    
     .ul-elements li a {
         text-transform: none;
@@ -159,5 +173,30 @@
         font-size: 1.5rem;
         line-height: 29px;
     }
+
+    .profile-container{
+      display: flex;
+      flex-direction:row;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #333;
+      background-color: white;
+      margin-left: 20px;
+  }
+    .profile-container h1,
+  .profile-container p {
+    font-size: 25px;
+  }
+  .profile-container p {
+    margin-left: 10px;
+  }
+
+  .styled-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
     
 }
