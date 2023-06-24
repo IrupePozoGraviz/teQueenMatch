@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import user from '../reducers/User'
 import { API_URL } from './Utils'
 import { RegistrationPage } from './registration'
+import './css/login.css'
 
 const LogIn = ({ setLogIn, isSignUp }) => {
   const [username, setUsername] = useState('');
@@ -69,22 +70,26 @@ const LogIn = ({ setLogIn, isSignUp }) => {
         <>
           <h2>LOG IN</h2>
           <p>By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="login-form">
             <input
-              type="text"
+              className="username-input"
+              type="username"
               id="Username"
               name="Username"
               placeholder="username"
               required
               onChange={(e) => setUsername(e.target.value)} />
             <input
+              className="password-input"
               type="password"
               id="password"
               name="password"
               placeholder="password"
               required
               onChange={(e) => setPassword(e.target.value)} />
-            <input className="secondary-button" type="submit" />
+            <div className="loginbtn">
+              <input className="secondary-button" type="submit" />
+            </div>
           </form>
         </>)}
       {isSignUp && (
