@@ -62,7 +62,7 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
-        <ul className="ul-elements right-aligned">
+        <ul className="ul-elements">
           <li className="li-elements">
             <Link to="/dashboard">{navOne}My dashboard</Link>
           </li>

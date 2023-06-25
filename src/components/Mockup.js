@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import { mentees } from './UserData';
 import NavBarNew from './LogedInNavNew';
+import './Mockup.css';
 
 export const UserCard = () => {
   const [currentMenteeIndex, setCurrentMenteeIndex] = useState(0);
@@ -63,13 +64,13 @@ export const UserCard = () => {
           className="primary-button"
           type="button"
           onClick={() => handleLikePerson(menteesData.id)}>
-            Accept
+                    Accept
         </button>
         <button
           className="primary-button"
           type="button"
           onClick={() => handleDislikePerson(menteesData.id)}>
-            Decline
+                    Decline
         </button>
       </div>
     </div>

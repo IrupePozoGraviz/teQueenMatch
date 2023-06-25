@@ -8,20 +8,6 @@
     /* Align items vertically */
 }
 
-.nav-button {
-    color: rgb(254, 48, 114);
-    background-color: rgb(255, 255, 255);
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    margin: 10px;
-}
-
-.nav-button:disabled {
-    background-color: rgb(181, 180, 180);
-    color: rgb(189, 42, 90);
-}
 
 
 .navigation .logo-container {

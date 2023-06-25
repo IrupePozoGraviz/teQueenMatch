@@ -34,23 +34,21 @@ const Nav = ({ authToken, minimal, setLogIn, Login, setIsSignUp }) => {
           </p>
         ) : (
           <button
-            className="nav-button"
+            className="secondary-button"
             type="button"
             onClick={handleClick}
             disabled={Login}>
             <Link
-              to="/"
-              className="nav-link">
+              to="/">
             Login
             </Link>
           </button>
         )}
         <button
           type="button"
-          className="nav-button">
+          className="secondary-button">
           <Link
-            to="/tinder-cards"
-            className="nav-link">Prototype
+            to="/tinder-cards">Prototype
           </Link>
         </button>
       </div>
