@@ -39,11 +39,11 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
           <path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
         </svg>
         <SignOutButton />
+        <div className="profile-container">
+          <h1>{currentUser.username}</h1>
+          <p>{` Your role: ${currentUser.role}`}</p>
+        </div>
       </Link>
-      <div className="profile-container">
-        <h1>{currentUser.username}</h1>
-        <p>{` Your role: ${currentUser.role}`}</p>
-      </div>
 
       <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (

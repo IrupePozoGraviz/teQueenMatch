@@ -56,6 +56,7 @@
   justify-content: flex-end;
 }
 
+
 .li-elements > a {
   text-decoration: none;
   color: black;
@@ -67,6 +68,7 @@
 .li-elements > a:hover {
   background-color: #ddd;
 }
+
 .home-icon{
   margin-right: 10px;
 }

@@ -1,19 +1,16 @@
 /*-------- Edit container --------*/
 
 .edit-container{
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	  justify-content: center;
-	  align-content: center;
 	  flex-direction: column;
 	  padding: 20px;
 	  overflow: hidden;
 	  border: 1px solid #FFFFFF;
 
   }
-  .edit-title{
-	background: var(--secondary-background);
-	width: 100%;
-  }
+ 
   .picture-container{
 	display: grid;
 	justify-content: center;
@@ -22,9 +19,6 @@
 	padding: 20px;
 	width: 100%;
 	overflow: hidden;
-	
-
-	
   }
   
   .form-container {

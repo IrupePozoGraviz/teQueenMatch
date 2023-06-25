@@ -96,7 +96,7 @@ export const EditProfilePage = () => {
     <>
       <NavBarNew />
       <div className="edit-container">
-        <div className="edit-title">
+        <div className="header-container">
       <h2>Settings</h2>
       </div>
       <Picture className="picture-container" />
