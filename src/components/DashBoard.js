@@ -29,13 +29,8 @@ export const Dashboard = () => {
     <div>
       <NavBarNew />
       <div className="dashboard-header">
-            
+      <h2>Dashboard</h2>
             </div>
-      <main className="mainDashboard-container">
-   
-          <div className="dashboard-header">
-            
-          </div>
           <div className="dashboard-container">
           <section className="potentialmatches">
             <h2>You have {potentialMatches ? potentialMatches.length : 0} potential matches</h2>
@@ -58,7 +53,6 @@ export const Dashboard = () => {
         </li>
           </section>
         </div>
-      </main>
     </div>
   );
 };

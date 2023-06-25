@@ -11,8 +11,8 @@
 
   }
   .edit-title{
-	background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
-
+	background: var(--secondary-background);
+	width: 100%;
   }
   .picture-container{
 	display: grid;

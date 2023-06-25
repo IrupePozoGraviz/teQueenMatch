@@ -17,6 +17,7 @@ import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
 import { Liked } from './components/liked';
 import { Disliked } from './components/disliked';
+import { RegistrationPage } from './components/registration'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -40,7 +41,7 @@ export const App = () => {
           <Route path="/matched" element={<Matched />} />
           <Route path="/liked" element={<Liked />} />
           <Route path="/disliked" element={<Disliked />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

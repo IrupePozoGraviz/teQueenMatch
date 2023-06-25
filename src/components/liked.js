@@ -23,16 +23,13 @@ export const Liked = () => {
 
   return (
     <div className="nav">
-      <NavBar />
+      <NavBarNew />
       <main className="dashboard">
         <div className="box-container">
-          <div className="profile-header">
-            <h1>{`Welcome ${currentUser.username}`}</h1>
-            <p>{`Role: ${currentUser.role}`}</p>
-          </div>
+         
           <section className="matched">
             <h2>You Liked {potentialMatches ? potentialMatches.length : 0}</h2>
-			<p>Here you can see all your matches</p>
+			<p>Here you can see all your Liked matches</p>
            
           </section>
           

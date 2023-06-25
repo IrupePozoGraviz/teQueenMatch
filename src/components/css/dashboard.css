@@ -1,10 +1,11 @@
 /*-------- Dashboard  --------*/
 .dashboard-header{
-	background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+	background: var(--secondary-background);
 	display: flex;
 	align-items: center;
 	padding: 20px;
 }
+
 .dashboard-container {
 	display: flex;
 	flex-direction: column;

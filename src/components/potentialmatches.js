@@ -27,16 +27,6 @@ export const Potential = () => {
   const currentUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-/*   const filterUsers = () => {
-    const result = matchingList.filter((noUser) => {
-      const likedIndex = currentUser.likedPersons.findIndex(
-        (likedPerson) => likedPerson.id === noUser._id
-      );
-      return likedIndex === -1;
-  });
-  
-    setFilteredUsers(result);
-  }; */
   
 
   useEffect(() => {
@@ -91,8 +81,6 @@ export const Potential = () => {
       .then((json) => {
         console.log('Response:', json); // Log the response data
         if (json.accessToken) {
-          /* setLikedUsers(json.likedPersons.map((person) => person.id)); */
-          /*     filterUsers() */
           dispatch(setLikedPersons(json.likedPersons));
         } else if (json.error) {
           console.error('API error:', json.error); // Log the specific error message
@@ -116,7 +104,7 @@ export const Potential = () => {
       <main className="main-container">
         <div className="box-container">
       
-<div className="mentor">
+<div className="header-container">
 <h1>{`Here are your potential ${currentUser.role === 'mentee' ? 'mentors' : 'mentees'}`}</h1>
 </div>
           {loading ? (
