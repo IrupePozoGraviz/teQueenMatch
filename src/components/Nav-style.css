@@ -1,6 +1,6 @@
 /*-------- Navbar STARTPAGE--------*/
 
-nav {
+.navigation {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -10,12 +10,12 @@ nav {
 
 
 
-nav .logo-container {
+.navigation .logo-container {
     width: 170px;
     margin: 15px;
 }
 
-nav .logo-container .logo {
+.navigation .logo-container .logo {
     width: 100%;
 }
 

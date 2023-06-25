@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from './Utils';
 import { Picture } from './profilePic';
 import NavBarNew from './LogedInNavNew';
+import './css/edit.css'
 
 export const EditProfilePage = () => {
   const navigate = useNavigate();
@@ -95,32 +96,28 @@ export const EditProfilePage = () => {
     <>
       <NavBarNew />
       <div className="edit-container">
-      <h2>Edit Profile</h2>
+        <div className="edit-title">
+      <h2>Settings</h2>
+      </div>
       <Picture className="picture-container" />
       <section className="form-container">
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username">Username:</label>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input type="text" value={username} placeholder="username" onChange={(e) => setUsername(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="email">Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="firstName">First Name:</label>
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <input type="text" value={firstName} placeholder="firstname" onChange={(e) => setFirstName(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="lastName">Last Name:</label>
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input type="text" value={lastName} placeholder="lastname" onChange={(e) => setLastName(e.target.value)} />
           </div>
           <div className="multiple-input-container">
-            <label>Role:</label>
             <select value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="">Select role</option>
               <option value="mentor">Mentor</option>
@@ -136,10 +133,10 @@ export const EditProfilePage = () => {
               {/* Add other preference options here */}
             </select>
           </div>
-          <button type="submit">Save</button>
+          <button className="primary-button" type="submit">Save</button>
         </form>
       </section>
-      <button className="btnEdit" type="submit" onClick={handleDeleteProfile}>Delete Profile</button>
+      <button className="secondary-button" type="submit" onClick={handleDeleteProfile}>Delete Profile</button>
     </div></>
   );
 };

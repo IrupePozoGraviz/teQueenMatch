@@ -12,7 +12,7 @@ import { API_URL } from './Utils';
 import { setError, setLikedPersons } from '../reducers/User';
 import NavBarNew from './LogedInNavNew';
 import placeholder from '../images/placeholder.png';
-import './cards.css';
+import './/css/potentialmatches.css';
 
 
 export const Potential = () => {
@@ -115,12 +115,9 @@ export const Potential = () => {
       <NavBarNew />
       <main className="main-container">
         <div className="box-container">
-        <div className="profile-container">
-  <h1>{currentUser.username}</h1> 
-  <p>{`Your role: ${currentUser.role}`}</p>
-</div>
-<div className="mentor/mentee">
-<h3>{`Here are your potential ${currentUser.role === 'mentee' ? 'mentors' : 'mentees'}`}</h3>
+      
+<div className="mentor">
+<h1>{`Here are your potential ${currentUser.role === 'mentee' ? 'mentors' : 'mentees'}`}</h1>
 </div>
           {loading ? (
             'Loading...'

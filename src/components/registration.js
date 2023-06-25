@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import user from '../reducers/User';
 import { API_URL } from './Utils';
+import './css/createaccount.css';
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -82,50 +83,46 @@ export const RegistrationPage = () => {
   };
 
   return (
-    <div className="onboarding">
+    <div className="create-account">
       <h2>Registration Page</h2>
       <form onSubmit={register}>
         <div>
-          <label htmlFor="username">Username:</label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" value={username} placeholder="username" onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" value={email} placeholder="e-mail" onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+
+          <input type="text" value={firstName} placeholder="name" onChange={(e) => setFirstName(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+
+          <input type="text" value={lastName} placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
         </div>
         <div>
-          <label>Role:</label>
           <select value={role} onChange={(e) => setRole(e.target.value)}>
             <option value="">Select role</option>
             <option value="mentor">Mentor</option>
             <option value="mentee">Mentee</option>
           </select>
         </div>
-        <div>
-          <label>Preferences:</label>
+        <div className="preferences">
           <select multiple value={preferences} onChange={handlePreferenceChange}>
-            <option value="fullstack"> Full Stack </option>
-            <option value="frontend"> Frontend </option>
-            <option value="backend"> Backend </option>
-            <option value="react"> React </option>
-            <option value="javascript"> JavaScript </option>
-            <option value="python"> Python </option>
-            <option value="java"> Java </option>
+            <option value="">Select preferences</option>
+            <option value="fullstack">Full Stack</option>
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+            <option value="react">React</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
           </select>
         </div>
-        <button type="submit">Register</button>
+        <button className="secondary-button" type="submit">Register</button>
       </form>
       {/* Redirect to the profile page */}
       {registrationSuccess && <p>Redirecting to the profile page...</p>}

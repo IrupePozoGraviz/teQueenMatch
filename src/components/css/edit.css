@@ -1,0 +1,95 @@
+/*-------- Edit container --------*/
+
+.edit-container{
+	display: grid;
+	  justify-content: center;
+	  align-content: center;
+	  flex-direction: column;
+	  padding: 20px;
+	  overflow: hidden;
+	  border: 1px solid #FFFFFF;
+
+  }
+  .edit-title{
+	background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+
+  }
+  .picture-container{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px;
+	width: 100%;
+	overflow: hidden;
+	
+
+	
+  }
+  
+  .form-container {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px;
+	width: 100%;
+	overflow: hidden;
+	
+  }
+  
+  .primary-button {
+	margin-top: 10px;
+	padding: 10px 20px;
+	width: 200px;
+	color: #fff;
+	border: solid 2px rgb(219, 219, 219);
+	
+	cursor: pointer;
+  }
+
+  .secondary-button {
+	display: flex;
+	width: 200px;
+	margin-left: 100px;
+
+  }
+
+  .form-container input {
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	border: solid 2px rgb(219, 219, 219);
+	border-radius: 5px;
+  }
+
+  .form-container textarea {
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	
+	border-radius: 5px;
+  }
+
+  .form-container select {
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	border: solid 2px rgb(219, 219, 219);
+	border-radius: 5px;
+  }
+
+
+  .form-container option {
+
+	padding: 10px;
+	width: 100%;
+
+  }
+
+  .form-container input[type="file"] {
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	border: solid 2px rgb(219, 219, 219);
+  }

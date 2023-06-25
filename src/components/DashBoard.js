@@ -14,6 +14,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import  NavBarNew from './LogedInNavNew';
+import './css/dashboard.css';
 
 
 export const Dashboard = () => {
@@ -25,14 +26,17 @@ export const Dashboard = () => {
   }
 
   return (
-    <div className="nav">
+    <div>
       <NavBarNew />
-      <main className="dashboard">
-        <div className="box-container">
-          <div className="profile-header">
-            <h1>{`Welcome ${currentUser.username}`}</h1>
-            <p>{`Role: ${currentUser.role}`}</p>
+      <div className="dashboard-header">
+            
+            </div>
+      <main className="mainDashboard-container">
+   
+          <div className="dashboard-header">
+            
           </div>
+          <div className="dashboard-container">
           <section className="potentialmatches">
             <h2>You have {potentialMatches ? potentialMatches.length : 0} potential matches</h2>
             <li className="navbar-item">
@@ -51,12 +55,6 @@ export const Dashboard = () => {
             <h2>You Liked {potentialMatches ? potentialMatches.length : 0}</h2>
             <li className="navbar-item">
           <Link to="/liked">Liked</Link>
-        </li>
-          </section>
-          <section className="Disliked">
-            <h2>You did not choose {potentialMatches ? potentialMatches.length : 0}</h2>
-            <li className="navbar-item">
-          <Link to="/disliked">didnt choose</Link>
         </li>
           </section>
         </div>
