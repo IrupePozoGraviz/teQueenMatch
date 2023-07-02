@@ -94,21 +94,7 @@ margin: 0;
 /* ---------- Alla små och stora Mobiler---------- */
 @media (max-width: 768px) {
  
-  .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--primary-light);
-      background: var(--primary-dark);
-      font-weight: 200;
-      font-size: 15px;
-      padding: 10px 15px;
-  
-      border-top: solid 2px rgb(121, 119, 119);
-      margin: 6px;
-    }
+
   
     .profile-container h1,
     .profile-container p {
