@@ -38,39 +38,42 @@ const Home = () => {
 
   return (
     <div className="overlay">
-      {accessToken ? (
-        <NavBarNew /> // If the user is logged in, show the navbar
-      ) : null}
-      <Nav
-        authToken={accessToken}
-        minimal={false}
-        setLogIn={setLogIn}
-        Login={Login}
-        setIsSignUp={setIsSignUp} />
 
-      {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
-      <Link
-        to="/registration"
-        type="button"
-        className="primary-button"
-        onClick={handleClick}>
-        {accessToken ? 'Go find your match!' : 'Create Account'}
-      </Link>
-      <div className="headline-wrapper">
-        <div className="headline">
-          <h1 className="primary-title">teQueenMatch</h1>
-          <img
-            className="copyright-icon"
-            aria-label="copywrite-icon"
-            src="./assets/copyright.png"
-            alt="copywrite-icon" />
+      <nav>
+        {accessToken ? <NavBarNew /> : null}
+        {/* Wrapping the login buttons in the buttons-wrapper */}
+        <div className="buttons-wrapper">
+          <Nav
+            authToken={accessToken}
+            minimal={false}
+            setLogIn={setLogIn}
+            Login={Login}
+            setIsSignUp={setIsSignUp} />
+          {/* Only show the login form if the user clicks on "Create Account" */}
+          {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
         </div>
+        <div className="headline-wrapper">
+          <div className="headline">
+            <h1 className="primary-title">teQueenMatch</h1>
+            <img
+              className="copyright-icon"
+              aria-label="copywrite-icon"
+              src="./assets/copyright.png"
+              alt="copywrite-icon" />
+          </div>
 
-        <p className="primary-text"> Changing tech one mentorship at a time</p>
-        <p className="primary-text">Sign up to find your mentor or mentee</p>
-      </div>
+          <p className="primary-text">Changing tech one mentorship at a time</p>
+          <p className="primary-text">Sign up to find your mentor or mentee</p>
+        </div>
+        <Link
+          to="/registration"
+          type="button"
+          className="secondary-button"
+          onClick={handleClick}>
+          {accessToken ? 'Go find your match!' : 'Create Account'}
+        </Link>
+      </nav>
     </div>
-
   )
 }
 export default Home
