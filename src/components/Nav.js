@@ -19,16 +19,8 @@ const Nav = ({ authToken, setLogIn, Login, setIsSignUp }) => {
 
   return (
     <div className="login-wrapper">
-      {authToken ? ( // if we have an auth token, show the sign out button, else show the login button
-        <button
-          className="secondary-button"
-          type="button"
-          onClick={handleClick}>
-          <Link
-            to="/">
-              Sign Out
-          </Link>
-        </button>
+      {authToken ? ( // if we have an auth token, show nothing, otherwise show the login button
+        null
 
       ) : (
         <button
@@ -42,13 +34,6 @@ const Nav = ({ authToken, setLogIn, Login, setIsSignUp }) => {
           </Link>
         </button>
       )}
-      <button
-        type="button"
-        className="secondary-button">
-        <Link
-          to="/tinder-cards">Prototype
-        </Link>
-      </button>
     </div>
   );
 };

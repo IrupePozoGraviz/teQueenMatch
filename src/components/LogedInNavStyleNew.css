@@ -6,10 +6,11 @@
   margin-top: 20px;
 }
 
-.header-logo {
+.header-items {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   text-decoration: none;
+  flex-direction: column;
   color: #333;
 }
 
@@ -74,13 +75,17 @@
 }
 .profile-container{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: #333;
-  background-color: white;
-  margin-left: 10px;
+text-transform: uppercase;
+  color: var(--primary-light);
+
+    font-weight: 200;
+    font-size: 15px;
+    padding: 10px 15px;
+   
+    border-top: solid 2px rgb(121, 119, 119);
+   
 }
 .profile-container h1,
 .profile-container p {
@@ -88,7 +93,27 @@ margin: 0;
 }
 /* ---------- Alla små och stora Mobiler---------- */
 @media (max-width: 768px) {
+ 
+  .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--primary-light);
+      background: var(--primary-dark);
+      font-weight: 200;
+      font-size: 15px;
+      padding: 10px 15px;
   
+      border-top: solid 2px rgb(121, 119, 119);
+      margin: 6px;
+    }
+  
+    .profile-container h1,
+    .profile-container p {
+      margin: 0;
+    }
   .toggle-button {
     display: block;
  
@@ -146,7 +171,7 @@ margin: 0;
 }
 
 .sign-out-btn:hover .icon {
-  display: none;
+ 
 }
 
 .sign-out-btn:hover .hover-text {
@@ -178,16 +203,7 @@ margin: 0;
       line-height: 29px;
   }
 
-  .profile-container{
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #333;
-    background-color: white;
-    margin-left: 20px;
-}
+
   .profile-container h1,
 .profile-container p {
   font-size: 25px;
