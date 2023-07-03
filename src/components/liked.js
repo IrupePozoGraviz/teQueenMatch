@@ -39,6 +39,7 @@ export const Liked = () => {
       if (data.success) {
         const likedPersons = data.response.likedPersons;
         dispatch(setLikedPersons(likedPersons));
+        console.log('likedPersons:', likedPersons);
       } else {
         throw new Error('API request unsuccessful');
       }
@@ -51,6 +52,8 @@ export const Liked = () => {
   useEffect(() => {
     fetchLikedPersons();
   }, []);
+  console.log('likedPersons:', likedPersons); // Log likedPersons
+  console.log('currentUser:', currentUser); 
 
 
   return (
@@ -66,7 +69,7 @@ export const Liked = () => {
         <p>No liked persons found.</p>
       ) : (
         likedPersons.map((user) => (
-          <div className="person-cardfinal" key={user._id}>
+          <div className="person-cardfinal" key={user.username}>
             <div className="liked-card">
               <div className="photo-containerfinal">
                 <img src={placeholder} alt="placeholder" />
@@ -74,8 +77,10 @@ export const Liked = () => {
               <div className="profile-infofinal">
                 <div className="name-containerfinal">
 
-                <h2>{user.username}</h2>
-                <p>{user.role}</p>
+                <h2>{user.username} // {user.role} </h2>
+              </div>
+              <div className="preferences">
+                <p>{user.preferences}</p>
               </div>
 
                       <div className="emojis">

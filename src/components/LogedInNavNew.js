@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import './LogedInNavStyleNew.css';
 import SignOutButton from './SignOut';
 
-const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOne, navTwo, navThree, navFour, navFive are the names of the links in the nav bar that are passed in as props from the dashboard page (see Dashboard.js) and can be renamed to whatever you want. the purpurse of this is to make the nav bar reusable for other pages that need a nav bar with different links in it.
+const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { // navOne, navTwo, navThree, navFour, navFive are the names of the links in the nav bar that are passed in as props from the dashboard page (see Dashboard.js) and can be renamed to whatever you want. the purpurse of this is to make the nav bar reusable for other pages that need a nav bar with different links in it.
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const currentUser = useSelector((store) => store.user);
@@ -76,10 +76,13 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
             <Link to="/pot">{navThree}Potential Matches</Link>
           </li>
           <li className="li-elements">
-            <Link to="/tinder-cards">{navFour}Prototype</Link>
+            <Link to="/liked">{navFour}Liked</Link>
           </li>
           <li className="li-elements">
-            <Link to="/">{navFive}</Link>
+            <Link to="/tinder-cards">{navFive}Prototype</Link>
+          </li>
+          <li className="li-elements">
+            <Link to="/">{navSix}</Link>
           </li>
         </ul>
       </div>
