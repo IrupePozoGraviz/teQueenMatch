@@ -39,7 +39,7 @@ export const Matched = () => {
           }
         };
 
-        const response = await fetch(API_URL('/users'), options);
+        const response = await fetch(API_URL(`/matchedPersons/${userId}`, options));
         const data = await response.json();
 
         if (data.success) {

@@ -11,7 +11,7 @@ const user = createSlice({
     preferences: '', // Initialize with an empty string
     accessToken: null,
     userId: null,
-    likedPersons: null,
+    likedPersons: [],
     error: null,
     isOwner: false // Add the isOwner flag with an initial value of false
   },

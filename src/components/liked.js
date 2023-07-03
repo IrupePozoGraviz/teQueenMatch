@@ -4,15 +4,16 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
-// code is showing but dislike and like logic not working
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NavBarNew from './LogedInNavNew';
 import { setLikedPersons } from '../reducers/User';
 import placeholder from '../images/placeholder.png';
+import { API_URL } from './Utils';
 
 export const Liked = () => {
+
   const likedPersons = useSelector((store) => store.user.likedPersons);
   const userId = useSelector((store) => store.user.userId);
   const currentUser = useSelector((store) => store.user);
@@ -29,14 +30,14 @@ export const Liked = () => {
           Authorization: accessToken,
         },
       };
-      const response = await fetch(`/likedpersons/${userId}`, options);
+      const response = await fetch(API_URL(`/likedpersons/${userId}`, options));
       if (!response.ok) {
         throw new Error('Could not get liked persons');
       }
       const data = await response.json();
       console.log('API response:', data);
       if (data.success) {
-        const likedPersons = data.response.likedPersons; // Access 'likedPersons' from the response object
+        const likedPersons = data.response.likedPersons;
         dispatch(setLikedPersons(likedPersons));
       } else {
         throw new Error('API request unsuccessful');
@@ -51,13 +52,6 @@ export const Liked = () => {
     fetchLikedPersons();
   }, []);
 
-  const filteredLikedPersons = likedPersons
-    ? likedPersons.filter(
-        (user) =>
-          !user.likedPersons.includes(user.Id) &&
-          !user.dislikedPersons.includes(user.Id)
-      )
-    : [];
 
   return (
     <div className="nav">
@@ -67,10 +61,10 @@ export const Liked = () => {
           currentUser.role === 'mentee' ? 'mentors' : 'mentees'
         }`}</h1>
       </div>
-      {filteredLikedPersons.length === 0 ? (
+      {likedPersons.length === 0 ? (
         <p>No liked persons found.</p>
       ) : (
-        filteredLikedPersons.map((user) => (
+        likedPersons.map((user) => (
           <div className="liked-container" key={user._id}>
             <div className="liked-card">
               <div className="liked-card-image">
@@ -79,10 +73,6 @@ export const Liked = () => {
               <div className="liked-card-text">
                 <h2>{user.username}</h2>
                 <p>{user.role}</p>
-                <p>Preferences: </p>
-                {user.preferences.map((pref, index) => (
-                  <p key={index}>{pref}</p>
-                ))}
               </div>
             </div>
           </div>
