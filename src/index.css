@@ -78,7 +78,7 @@ a {
 
 
 .secondary-button {
-  color: black;
+  color: var(--primary-dark);
   background: linear-gradient(45deg, var(--secondary-button-end), var(--secondary-button-start));
   font-weight: 500;
   font-size: 15px;
@@ -193,18 +193,4 @@ a {
 
 .loged-in-text {
   align-self: flex-end;
-}
-.demo-link {
-
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  background-color: #470b70;
-  color: #ffffff;
-  border-radius: 4px;
-  border: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  box-shadow: #ffffff 0px 0px 0px 2px inset, #ffffff 0px 0px 0px 1px;
 }

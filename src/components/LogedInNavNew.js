@@ -26,9 +26,15 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
   return (
     <nav
       className="styled-nav-bar">
+
       <Link
         to="/"
-        className="header-logo">
+        className="header-items">
+        <div className="profile-container">
+          <h1>{currentUser.username}</h1>
+          <span> || </span>
+          <p>{` Your role: ${currentUser.role}`}</p>
+        </div>
         <span className="hover-text">Home</span>
         <svg
           className="home-icon"
@@ -39,10 +45,7 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive }) => { // navOn
           <path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
         </svg>
         <SignOutButton />
-        <div className="profile-container">
-          <h1>{currentUser.username}</h1>
-          <p>{` Your role: ${currentUser.role}`}</p>
-        </div>
+
       </Link>
 
       <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
