@@ -67,7 +67,7 @@ export const Potential = () => {
     const likePersonUserId = user._id;
     console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
     console.log('API URL:', API_URL(`likedPersons/${userId}`));
-    fetch(API_URL(`likedPersons/${userId}`), {
+    fetch(API_URL(`likedpersons/${userId}`), {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -82,6 +82,7 @@ export const Potential = () => {
         console.log('Response:', json); // Log the response data
         if (json.accessToken) {
           dispatch(setLikedPersons(json.likedPersons));
+          setLikedUsers([...likedUsers, user._id])
         } else if (json.error) {
           console.error('API error:', json.error); // Log the specific error message
         } else {
