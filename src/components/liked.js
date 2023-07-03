@@ -61,23 +61,32 @@ export const Liked = () => {
           currentUser.role === 'mentee' ? 'mentors' : 'mentees'
         }`}</h1>
       </div>
+      <div className="card-container">
       {likedPersons.length === 0 ? (
         <p>No liked persons found.</p>
       ) : (
         likedPersons.map((user) => (
-          <div className="liked-container" key={user._id}>
+          <div className="person-cardfinal" key={user._id}>
             <div className="liked-card">
-              <div className="liked-card-image">
+              <div className="photo-containerfinal">
                 <img src={placeholder} alt="placeholder" />
               </div>
-              <div className="liked-card-text">
+              <div className="profile-infofinal">
+                <div className="name-containerfinal">
+
                 <h2>{user.username}</h2>
                 <p>{user.role}</p>
+              </div>
+
+                      <div className="emojis">
+                      <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
+                      </div>
               </div>
             </div>
           </div>
         ))
       )}
+      </div>
     </div>
   );
 };

@@ -1,23 +1,19 @@
 /*-------- Navbar STARTPAGE--------*/
 
-.navigation {
-    width: 100%;
+.nav-links-wrapper {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    /* Align items vertically */
 }
 
-
-.navigation .logo-container {
-    width: 170px;
-    margin: 15px;
+.login-wrapper {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.navigation .logo-container .logo {
-    width: 100%;
-}
-
-.logo-container .logo img {
-    width: 100%;
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

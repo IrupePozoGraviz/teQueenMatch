@@ -1,3 +1,12 @@
+.home-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+}
+
 .copyright-icon {
     width: 20px;
     bottom: 0;
@@ -12,7 +21,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .headline-wrapper {

@@ -50,11 +50,11 @@ const Home = () => {
 
       {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
       <Link
-        to="/registration"
+        to="/"
         type="button"
         className="primary-button"
         onClick={handleClick}>
-        {accessToken ? 'Go find your match!' : 'Create Account'}
+        {accessToken ? 'Sign out!' : 'Create Account'}
       </Link>
       <div className="headline-wrapper">
         <div className="headline">

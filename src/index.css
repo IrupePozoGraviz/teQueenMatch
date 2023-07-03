@@ -14,18 +14,18 @@ body {
 
 :root {
   --primary-background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.65) 0%,
-            rgba(0, 0, 0, 0) 100%);
-            --secondary-background: linear-gradient(to bottom,
-              rgba(255, 65, 236) 0%,
-              rgba(242, 223, 239, 0.899) 100%);
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0) 100%);
+  --secondary-background: linear-gradient(to bottom,
+      rgba(255, 65, 236) 0%,
+      rgba(242, 223, 239, 0.899) 100%);
   --secondary-light: rgb(255, 65, 236);
   --glassmorf-bg: rgb(255, 65, 236);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.9px);
-    -webkit-backdrop-filter: blur(6.9px);
-    border: 1px solid rgba(249, 9, 161, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.9px);
+  -webkit-backdrop-filter: blur(6.9px);
+  border: 1px solid rgba(249, 9, 161, 0.6);
   --secondary-purple: rgb(129, 9, 183);
   --primary-dark: rgb(12, 24, 69);
   --primary-light: rgba(242, 223, 239, 0.899);
@@ -48,7 +48,7 @@ h2 {
 a {
   text-decoration: none;
   color: inherit;
-} 
+}
 
 .primary-title {
   color: var(--primary-light);
@@ -67,18 +67,18 @@ a {
   border-radius: 30px;
   border: none;
   border-top: solid 2px rgb(121, 119, 119);
-} 
+}
 
 .primary-button:hover {
   background: linear-gradient(260deg, var(--secondary-light), var(--primary-button-end));
   color: var(--primary-dark);
   border: solid 2px rgb(48, 48, 48);
   border-bottom: solid 3px rgb(121, 119, 119);
-  }
+}
 
 
 .secondary-button {
-  color: black;
+  color: var(--primary-dark);
   background: linear-gradient(45deg, var(--secondary-button-end), var(--secondary-button-start));
   font-weight: 500;
   font-size: 15px;
@@ -87,7 +87,7 @@ a {
   border-radius: 30px;
   border-top: solid 2px rgb(121, 119, 119);
   margin: 6px;
-} 
+}
 
 .secondary-button:hover {
 
@@ -143,9 +143,10 @@ a {
 
 .person-card {
   margin: 20px 30px;
-  border : solid 5px pink;
+  border: solid 5px pink;
   border-radius: 20px;
 }
+
 .photo-container {
   display: flex;
   justify-content: center;
@@ -153,7 +154,7 @@ a {
   flex-direction: column;
   padding: 20px;
   background: linear-gradient(to bottom, rgb(247, 244, 244) 0%,
-        rgb(220, 219, 219) 100%);
+      rgb(220, 219, 219) 100%);
 }
 
 .photo-container img {
@@ -169,11 +170,12 @@ a {
   height: 400px;
 
   background: linear-gradient(to bottom, rgb(247, 244, 244) 0%,
-        rgb(220, 219, 219) 100%);
+      rgb(220, 219, 219) 100%);
   border: 1px solid #FFFFFF;
   backdrop-filter: blur(50px);
   border-radius: 20px;
 }
+
 .button-container {
   display: flex;
   justify-content: space-evenly;
@@ -181,6 +183,7 @@ a {
   flex-direction: row;
   padding: 20px;
 }
+
 .Lizzo {
   display: flex;
   flex-direction: column;
@@ -193,18 +196,4 @@ a {
 
 .loged-in-text {
   align-self: flex-end;
-}
-.demo-link {
-
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  background-color: #470b70;
-  color: #ffffff;
-  border-radius: 4px;
-  border: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  box-shadow: #ffffff 0px 0px 0px 2px inset, #ffffff 0px 0px 0px 1px;
 }
