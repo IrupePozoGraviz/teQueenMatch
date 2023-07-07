@@ -8,7 +8,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
-/* import user, { setError, setLiked } from '../reducers/User'; */
 import { setError, setLikedPersons } from '../reducers/User';
 import NavBarNew from './LogedInNavNew';
 import placeholder from '../images/placeholder.png';
@@ -20,7 +19,6 @@ export const Potential = () => {
   const [loading, setLoading] = useState(true);
   const [likedUsers, setLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
-/* const [filteredUsers, setFilteredUsers] = useState([]); */
   const userId = useSelector((store) => store.user.userId);
   let accessToken = useSelector((store) => store.user.accessToken);
   accessToken = !accessToken && localStorage.getItem('accessToken');
@@ -128,6 +126,9 @@ export const Potential = () => {
                     <div className="profile-infofinal">
                       <div className="name-containerfinal">
                       <p>{user.username} // {user.role}</p>
+                      </div>
+                      <div className="bio-containerfinal">
+                      <p>{user.bio}</p>
                       </div>
                       <div className="preferences">
                       <p>Preferences: </p>

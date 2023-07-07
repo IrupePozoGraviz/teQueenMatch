@@ -5,13 +5,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
 // code is showing but dislike and like logic not working
-/* eslint-disable */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable max-len */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react-hooks/exhaustive-deps */
-// code is showing but dislike and like logic not working
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
@@ -29,6 +22,7 @@ export const Matched = () => {
   const dispatch = useDispatch();
 
   const matchedUsers = async () => {
+    console.log('currentUser:', currentUser)
     try {
       const options = {
         method: 'GET',
@@ -78,6 +72,9 @@ export const Matched = () => {
                 <div className="profile-infofinal">
                   <div className="name-containerfinal">
                     <h2>{user.username} // {user.role} </h2>
+                  </div>
+                  <div className="bio-containerfinal">
+                    <p>{user.bio}</p>
                   </div>
                   <div className="preferences">
                     <p>{user.preferences}</p>

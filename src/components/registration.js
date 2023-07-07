@@ -17,6 +17,7 @@ export const RegistrationPage = () => {
   const [lastName, setLastName] = useState('');
   const [role, setRole] = useState('');
   const [preferences, setPreferences] = useState([]);
+  const [bio, setBio] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const dispatch = useDispatch();
@@ -39,7 +40,8 @@ export const RegistrationPage = () => {
     firstName,
     lastName,
     role,
-    preferences
+    preferences,
+    bio
   };
 
   const register = (event) => {
@@ -64,6 +66,7 @@ export const RegistrationPage = () => {
           dispatch(user.actions.setLastName(data.response.lastName));
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setPreferences(data.response.preferences));
+          dispatch(user.actions.setBio(data.response.bio));
           dispatch(user.actions.setError(null));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           setRegistrationSuccess(true);
@@ -121,12 +124,18 @@ export const RegistrationPage = () => {
               onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
-
             <input type="text" value={firstName} placeholder="name" onChange={(e) => setFirstName(e.target.value)} />
           </div>
           <div>
 
             <input type="text" value={lastName} placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
+          </div>
+          <div>
+            <textarea
+              type="text"
+              value={bio}
+              placeholder="bio"
+              onChange={(e) => setBio(e.target.value)} />
           </div>
           <div>
             <select value={role} onChange={(e) => setRole(e.target.value)}>
