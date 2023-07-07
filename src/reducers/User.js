@@ -12,6 +12,7 @@ const user = createSlice({
     accessToken: null,
     userId: null,
     likedPersons: [],
+    matchedPersons: [],
     error: null,
     isOwner: false // Add the isOwner flag with an initial value of false
   },
@@ -47,11 +48,15 @@ const user = createSlice({
     setIsOwner: (store, action) => {
       store.isOwner = action.payload;
     },
+    setMatchedPersons: (store, action) => {
+      store.matchedPersons = action.payload;
+    },
 
     setAccessToken: (store, action) => {
       store.accessToken = action.payload;
       localStorage.setItem('accessToken', action.payload);
     }
+
   },
   logOut: (store) => {
     store.username = null;
@@ -65,6 +70,7 @@ const user = createSlice({
     store.likedPersons = null;
     store.error = null;
     store.isOwner = false;
+    store.matchedPersons = null;
     localStorage.removeItem('accessToken');
   }
 });
@@ -81,7 +87,9 @@ export const {
   setError,
   setIsOwner,
   logOut,
-  setLikedPersons
+  setLikedPersons,
+  setMatchedPersons
+
 } = user.actions;
 
 export default user;
