@@ -31,11 +31,11 @@ body {
   --primary-light: rgba(242, 223, 239, 0.899);
   --primary-button-start: rgb(254, 48, 114);
   --primary-button-end: rgba(186, 103, 190, 0.767);
-  --secondary-button-border: rgb(121, 119, 119);
-  --secondary-button-start: rgb(245, 226, 248);
-  --secondary-button-end: rgba(245, 6, 225, 0.494);
-  --disabled-button-color: rgba(255, 0, 225, 0.438);
-  --disabled-button-text: rgba(237, 20, 92, 0.374);
+  --secondary-button-border: rgb(121, 119, 121);
+  --secondary-button-start: rgba(163, 159, 164, 0.479);
+  --secondary-button-end: rgba(245, 6, 225, 0.167);
+  --disabled-button-color: rgba(145, 79, 135, 0.438);
+  --disabled-button-text: rgba(60, 58, 59, 0.374);
 }
 
 

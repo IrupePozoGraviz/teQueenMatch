@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import styled from 'styled-components'; // install styled-components using npm install styled-components --save
 
 const SignOutButton = () => {
   /* const handleSignOut = () => {
@@ -19,21 +19,33 @@ const SignOutButton = () => {
     }, 0);
   };
 
+  const StyledSignOutButton = styled.button`
+    background: var(--primary-dark);
+   border-top: solid 2px rgb(121, 119, 119);
+  border-radius: 5px;
+  color: var(--primary-light);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  border: solid 2px rgb(48, 48, 48);
+  border-bottom: solid 3px rgb(121, 119, 119);
+  }
+`;
+
   return (
     <div>
-      <button
+      <StyledSignOutButton
         type="button"
-        onClick={handleSignOut}
-        className="secondary-button">
-        <span className="hover-text">Sign Out?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="30"
-          viewBox="0 -960 960 960"
-          width="48">
-          <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h291v60H180v600h291v60H180Zm486-185-43-43 102-102H375v-60h348L621-612l43-43 176 176-174 174Z" />
-        </svg>
-      </button>
+        onClick={handleSignOut}>
+        Sign Out
+      </StyledSignOutButton>
     </div>
   );
 };

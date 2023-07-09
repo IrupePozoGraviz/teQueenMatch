@@ -29,21 +29,12 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
 
       <Link
         to="/"
-        className="header-items">
+        className="header-items"> Home
         <div className="profile-container">
-          <h1>{currentUser.username}</h1>
-          <span> || </span>
-          <p>{` Your role: ${currentUser.role}`}</p>
+          <h1 className="user-name">{currentUser.username}</h1>
+          <p className="role">Your role: {currentUser.role}</p>
         </div>
-        <span className="hover-text">Home</span>
-        <svg
-          className="home-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="48"
-          viewBox="0 -960 960 960"
-          width="48">
-          <path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
-        </svg>
+
         <SignOutButton />
 
       </Link>

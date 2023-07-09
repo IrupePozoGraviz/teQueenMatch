@@ -11,6 +11,15 @@
   text-decoration: none;
   flex-direction: column;
   color: #333;
+  padding: 10px 15px;
+  margin: 10px;
+ 
+  
+}
+.profile-container h1 {
+  font-size: 1.5rem;
+ padding: 10px 10px;
+  margin: 10px 10px;
 }
 
 .hover-text {
@@ -48,9 +57,7 @@
   padding: 0;
 }
 
-.li-elements {
-  margin-right: 10px;
-}
+
 
 .ul-elements.right-aligned {
   justify-content: flex-end;
@@ -69,9 +76,6 @@
   background-color: #ddd;
 }
 
-.home-icon {
-  margin-right: 10px;
-}
 
 .profile-container {
   display: flex;
@@ -79,10 +83,6 @@
   justify-content: center;
   text-transform: uppercase;
   color: var(--primary-light);
-
-  font-weight: 200;
-  font-size: 15px;
-  padding: 10px 15px;
 
   border-top: solid 2px rgb(121, 119, 119);
 
@@ -150,20 +150,6 @@
 
   }
 
-
-  .sign-out-btn .icon {
-    display: inline-block;
-  }
-
-  .sign-out-btn .hover-text {
-    display: none;
-  }
-
-  .sign-out-btn:hover .icon {}
-
-  .sign-out-btn:hover .hover-text {
-    display: inline-block;
-  }
 }
 
 /* ---------- DESKTOP (MIN-WIDTH 1024PX)  ---------- */
