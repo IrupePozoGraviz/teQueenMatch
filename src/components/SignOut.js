@@ -25,8 +25,7 @@ const SignOutButton = () => {
   border-radius: 5px;
   color: var(--primary-light);
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.7rem;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   text-transform: uppercase;
@@ -36,6 +35,15 @@ const SignOutButton = () => {
   background: var(--primary-light);
   border: solid 2px rgb(48, 48, 48);
   border-bottom: solid 3px rgb(121, 119, 119);
+  }
+  &:focus {
+  outline: none;
+
+  }
+  @media screen and (min-width: 768px) {
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.7rem 2rem;
   }
 `;
 

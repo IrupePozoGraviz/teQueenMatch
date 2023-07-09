@@ -26,19 +26,6 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
   return (
     <nav
       className="styled-nav-bar">
-
-      <Link
-        to="/"
-        className="header-items"> Home
-        <div className="profile-container">
-          <h1 className="user-name">{currentUser.username}</h1>
-          <p className="role">Your role: {currentUser.role}</p>
-        </div>
-
-        <SignOutButton />
-
-      </Link>
-
       <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
           <img
@@ -52,7 +39,6 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
             className="hamburger-icon" />
         )}
       </button>
-
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
@@ -77,6 +63,15 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
           </li>
         </ul>
       </div>
+      <Link
+        to="/"
+        className="header-items">Home
+      </Link>
+      <div className="profile-container">
+        <h1 className="user-name">{currentUser.username}</h1>
+        <p className="role">{currentUser.role}</p>
+      </div>
+      <SignOutButton />
     </nav>
   );
 };
