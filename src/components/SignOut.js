@@ -50,6 +50,7 @@ const SignOutButton = () => {
   return (
     <div>
       <StyledSignOutButton
+        className="sign-out-button"
         type="button"
         onClick={handleSignOut}>
         Sign Out

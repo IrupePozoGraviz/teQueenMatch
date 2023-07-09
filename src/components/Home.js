@@ -13,6 +13,7 @@ const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
   const accessToken = useSelector((state) => state.user.accessToken);
+  const currentUser = useSelector((store) => store.user);
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
 
@@ -56,7 +57,7 @@ const Home = () => {
           type="button"
           className="primary-button"
           onClick={handleClick}>
-          {accessToken ? 'Sign out!' : 'Create Account'}
+          {accessToken ? `Logged In as ${currentUser.username}` : 'Create Account'}
         </Link>
         <div className="headline">
           <h1 className="primary-title">teQueenMatch</h1>
