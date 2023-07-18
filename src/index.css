@@ -50,23 +50,24 @@ a {
   color: inherit;
 }
 
-.primary-title {
-  color: var(--primary-light);
-  font-size: 4rem;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-}
 
-.primary-button {
+.primary-button,
+.secondary-button {
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-size: 15px;
-  background: linear-gradient(45deg, var(--primary-button-end), var(--secondary-light));
   padding: 12px 30px;
   border-radius: 30px;
   border: none;
   border-top: solid 2px rgb(121, 119, 119);
+  width: 200px;
+  margin: 10px;
+  /* Adjust the width to your desired value */
+}
+.primary-button {
+
+  background: linear-gradient(45deg, var(--primary-button-end), var(--secondary-light));
+
 }
 
 .primary-button:hover {
@@ -81,17 +82,12 @@ a {
   color: var(--primary-dark);
   background: linear-gradient(45deg, var(--secondary-button-end), var(--secondary-button-start));
   font-weight: 500;
-  font-size: 15px;
-  text-transform: uppercase;
-  padding: 12px 30px;
-  border-radius: 30px;
-  border-top: solid 2px rgb(121, 119, 119);
-  margin: 6px;
+ 
 }
 
 .secondary-button:hover {
 
-  color: var(--primary-dark);
+  color: var(--primary-light);
   border: solid 2px rgb(48, 48, 48);
   border-bottom: solid 3px rgb(121, 119, 119);
 }

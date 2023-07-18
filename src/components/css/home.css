@@ -7,6 +7,13 @@
     /* Center vertically */
 }
 
+.primary-title {
+    color: var(--primary-light);
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
 
 .copyright-icon {
     width: 20px;

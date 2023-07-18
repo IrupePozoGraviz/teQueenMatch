@@ -39,6 +39,10 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
             className="hamburger-icon" />
         )}
       </button>
+      <Link
+        to="/"
+        className="home-button">Home
+      </Link>
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
@@ -63,10 +67,7 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
           </li>
         </ul>
       </div>
-      <Link
-        to="/"
-        className="header-items">Home
-      </Link>
+      <div className="homebutton-container" />
       <div className="profile-container">
         <h1 className="user-name">{currentUser.username}</h1>
         <p className="role">{currentUser.role}</p>
