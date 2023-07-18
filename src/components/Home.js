@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/jsx-no-undef */
 // login knappar = authmodal = sign in
 import { React, /* useEffect, */ useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Nav from './Nav'
 import LogIn from './login'
 import NavBarNew from './LogedInNavNew'
@@ -14,6 +15,7 @@ const Home = () => {
   const [isSignUp, setIsSignUp] = useState(true)
   const accessToken = useSelector((state) => state.user.accessToken);
   const currentUser = useSelector((store) => store.user);
+  const navigate = useNavigate();
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
 
@@ -38,6 +40,13 @@ const Home = () => {
     }
   };
 
+  const handleButtonClick = () => {
+    if (!accessToken) {
+      handleClick();
+      navigate('/registration'); // Navigate to the "/registration" route
+    }
+  };
+
   return (
     <div className="overlay">
       {accessToken ? (
@@ -52,13 +61,13 @@ const Home = () => {
           setIsSignUp={setIsSignUp} />
 
         {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
-        <Link
-          to="//registration"
+        <button
           type="button"
           className="primary-button"
-          onClick={handleClick}>
+          onClick={handleButtonClick}
+          disabled={accessToken ? 'disabled' : null}>
           {accessToken ? `Logged In as ${currentUser.username}` : 'Create Account'}
-        </Link>
+        </button>
         <div className="headline">
           <h1 className="primary-title">teQueenMatch</h1>
           <img

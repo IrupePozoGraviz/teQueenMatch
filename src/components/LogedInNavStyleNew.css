@@ -6,15 +6,20 @@
   flex-direction: column;
 }
 
-.header-items {
-  display: flex;
-  align-items: flex-start;
-  text-decoration: none;
-  flex-direction: column;
+/* .home-button {
   color: #333;
   padding: 10px 15px;
   margin: 10px;
-  
+  background-color: yellow;
+
+} */
+.home-button {
+  color: var(--primary-dark);
+    padding: 10px 15px;
+      margin: 10px;
+  border-radius: 16px;
+  background-color: rgb(234 216 231 / 90%);
+  align-self: flex-start;
 }
 
 .profile-container h1 {
@@ -102,10 +107,25 @@
     display: block;
     position: absolute;
     cursor: pointer;
+    border-radius: 12px;
+    border: none;
 
   }
+.homebutton-container {
+  display: flex;
+  align-self: flex-start;
+ 
+}
+.home-button {
+  margin-top: 0px;
+   border-radius: 16px;
+  background-color: rgb(234 216 231 / 90%);
+  align-self: flex-start;
+}
 
-
+.hamburger-icon {
+  height: 30px;
+}
   .menu-nav {
     display: none;
     position: absolute;
@@ -176,6 +196,11 @@
     }
     .styled-nav-bar {
     margin-top: none;
+    }
+    .homebutton-container {
+      display: flex;
+      align-self: flex-start;
+      
     }
 }
 
