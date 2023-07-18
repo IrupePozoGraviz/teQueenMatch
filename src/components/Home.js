@@ -13,6 +13,7 @@ const Home = () => {
   const [Login, setLogIn] = useState(false)
   const [isSignUp, setIsSignUp] = useState(true)
   const accessToken = useSelector((state) => state.user.accessToken);
+  const currentUser = useSelector((store) => store.user);
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
 
@@ -28,6 +29,7 @@ const Home = () => {
   // this handleclick is not working
 
   const handleClick = () => {
+    console.log('handleClick triggered');
     if (accessToken) {
       handleSignOut(); // Call the sign-out action if the user is already logged in
     } else {
@@ -41,22 +43,22 @@ const Home = () => {
       {accessToken ? (
         <NavBarNew /> // If the user is logged in, show the navbar
       ) : null}
-      <Nav
-        authToken={accessToken}
-        minimal={false}
-        setLogIn={setLogIn}
-        Login={Login}
-        setIsSignUp={setIsSignUp} />
-
-      {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
-      <Link
-        to="/"
-        type="button"
-        className="primary-button"
-        onClick={handleClick}>
-        {accessToken ? 'Sign out!' : 'Create Account'}
-      </Link>
       <div className="headline-wrapper">
+        <Nav
+          authToken={accessToken}
+          minimal={false}
+          setLogIn={setLogIn}
+          Login={Login}
+          setIsSignUp={setIsSignUp} />
+
+        {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
+        <Link
+          to="//registration"
+          type="button"
+          className="primary-button"
+          onClick={handleClick}>
+          {accessToken ? `Logged In as ${currentUser.username}` : 'Create Account'}
+        </Link>
         <div className="headline">
           <h1 className="primary-title">teQueenMatch</h1>
           <img
