@@ -83,6 +83,9 @@ export const Liked = () => {
               <div className="preferences">
                 <p>{user.preferences}</p>
               </div>
+              <div className="bio-containerfinal">
+                      <p>{user.bio}</p>
+                      </div>
 
                       <div className="emojis">
                       <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
