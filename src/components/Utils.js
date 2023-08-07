@@ -1,4 +1,5 @@
-const BASE_URL = 'https://backend-mentorshipproject-zzac3sf6oa-no.a.run.app';
+const BASE_URL = 'https://tequeenbackend.onrender.com';
+// const BASE_URL = 'https://backend-mentorshipproject-zzac3sf6oa-no.a.run.app';
 
 // const BASE_URL = "http://localhost:8080";
 // const BASE_URL = "http://localhost:8080";
