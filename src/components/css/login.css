@@ -17,7 +17,9 @@
 .auth-modal .close-icon {
 	float: right;
   }
-  
+  .error-message {
+	color: red;
+  }
   
   .auth-modal input[type=password],
   .auth-modal input[type=username] {

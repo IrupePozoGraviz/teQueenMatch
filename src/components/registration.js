@@ -4,13 +4,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import user from '../reducers/User';
+import user, { setError } from '../reducers/User';
 import { API_URL } from './Utils';
 import './css/createaccount.css';
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -76,10 +79,30 @@ export const RegistrationPage = () => {
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           setRegistrationSuccess(true);
         } else {
+          dispatch(setError(data.response));
           console.log('Registration failure:', data.response);
+
+          if (data.message === 'Please enter a valid email address') {
+            setEmailError(data.message);
+            setUsernameError(''); // Clear any previous username error
+            setPasswordError(''); // Clear any previous password error
+          } else if (data.message === 'Username must be between 2 and 30 characters') {
+            setUsernameError(data.message);
+            setEmailError(''); // Clear any previous email error
+            setPasswordError(''); // Clear any previous password error
+          } else if (data.message === 'Username already exists') {
+            setUsernameError(data.message);
+            setEmailError(''); // Clear any previous email error
+            setPasswordError(''); // Clear any previous password error
+          } else if (data.message === 'Password must be between 6 and 20 characters') {
+            setPasswordError(data.message);
+            setUsernameError(''); // Clear any previous username error
+            setEmailError(''); // Clear any previous email error
+          }
+
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
-          dispatch(user.actions.setError(data.response));
+          dispatch(user.actions.setError(data));
         }
       })
       .catch((error) => {
@@ -114,6 +137,7 @@ export const RegistrationPage = () => {
               value={username}
               placeholder="username"
               onChange={(e) => setUsername(e.target.value)} />
+            {usernameError && <p className="error-message">{usernameError}</p>}
           </div>
           <div>
             <input
@@ -121,6 +145,7 @@ export const RegistrationPage = () => {
               placeholder="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)} />
+            {passwordError && <p className="error-message">{passwordError}</p>}
           </div>
           <div>
             <input
@@ -128,6 +153,7 @@ export const RegistrationPage = () => {
               value={email}
               placeholder="e-mail"
               onChange={(e) => setEmail(e.target.value)} />
+            {emailError && <p className="error-message">{emailError}</p>}
           </div>
           <div>
             <input type="text" value={firstName} placeholder="name" onChange={(e) => setFirstName(e.target.value)} />

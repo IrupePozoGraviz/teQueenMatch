@@ -33,6 +33,9 @@ export const Matched = () => {
       };
 
       const response = await fetch(API_URL(`matchedPersons/${userId}`), options);
+      if (!response.ok) {
+        throw new Error('Could not get matched persons');
+      }
       const data = await response.json();
 
       console.log('API response:', data);
@@ -40,7 +43,7 @@ export const Matched = () => {
       if (data.success) {
         const matchedPersonsData = data.matchedPersons;
         dispatch(setMatchedPersons(matchedPersonsData));
-        console.log(matchedPersonsData);
+        console.log('matchedPersons', matchedPersonsData);
       } else {
         console.error(data.error);
       }
@@ -58,36 +61,45 @@ export const Matched = () => {
   console.log(currentUser);
 
   return (
-    <div className="potential-matches">
+    <div className="nav">
       <NavBarNew />
-      <div className="potential-matches-container">
-        <h1>Matched</h1>
-        <div className="potential-matches-list">
-          {matchedPersons.map((user) => (
-            <div className="person-cardfinal" key={user.username}>
-              <div className="liked-card">
-                <div className="photo-containerfinal">
-                  <img src={placeholder} alt="placeholder" />
-                </div>
-                <div className="profile-infofinal">
-                  <div className="name-containerfinal">
-                    <h2>{user.username} // {user.role} </h2>
-                  </div>
-                  <div className="bio-containerfinal">
-                    <p>{user.bio}</p>
-                  </div>
-                  <div className="preferences">
-                    <p>{user.preferences}</p>
-                  </div>
-                  <div className="emojis">
-                    <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
-                  </div>
-                </div>
+      <div className="header-container">
+        <h1>{`Here are your liked ${
+          currentUser.role === 'mentee' ? 'mentors' : 'mentees'
+        }`}</h1>
+      </div>
+      <div className="card-container">
+      {matchedPersons.length === 0 ? (
+        <p>No matched persons found.</p>
+      ) : (
+        matchedPersons.map((user) => (
+          <div className="person-cardfinal" key={user.username}>
+            <div className="liked-card">
+              <div className="photo-containerfinal">
+                <img src={placeholder} alt="placeholder" />
+              </div>
+              <div className="profile-infofinal">
+                <div className="name-containerfinal">
+
+                <h2>{user.username} // {user.role} </h2>
+              </div>
+              <div className="preferences">
+                <p>{user.preferences}</p>
+              </div>
+              <div className="bio-containerfinal">
+                      <p>{user.bio}</p>
+                      </div>
+
+                      <div className="emojis">
+                      <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
+                      </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))
+      )}
       </div>
     </div>
   );
 };
+

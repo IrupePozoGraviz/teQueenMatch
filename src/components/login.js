@@ -16,6 +16,7 @@ import './css/login.css'
 const LogIn = ({ setLogIn, isSignUp }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState(null)
+  const error = useSelector((store) => store.user.error);
   const login = 'login'; // this is the slug for the login endpoint
   const dispatch = useDispatch(); // install react-redux by running `npm i react-redux` in the terminal
   const navigate = useNavigate();
@@ -92,6 +93,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
               <input className="secondary-button" type="submit" />
             </div>
           </form>
+          {error && <p className="error-message">{error}</p>}
         </>)}
       {isSignUp && (
         <RegistrationPage />
