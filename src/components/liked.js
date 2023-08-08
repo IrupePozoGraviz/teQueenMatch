@@ -31,7 +31,7 @@ export const Liked = () => {
           Authorization: accessToken,
         },
       };
-      const response = await fetch(API_URL(`/likedpersons/${userId}`, options));
+      const response = await fetch(API_URL(`/likedpersons/${userId}`, options)); 
       if (!response.ok) {
         throw new Error('Could not get liked persons');
       }

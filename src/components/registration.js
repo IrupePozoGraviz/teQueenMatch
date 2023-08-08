@@ -46,6 +46,7 @@ export const RegistrationPage = () => {
 
   const register = (event) => {
     event.preventDefault();
+    console.log('Register function triggered');
 
     const options = {
       method: 'POST',
@@ -54,11 +55,15 @@ export const RegistrationPage = () => {
       },
       body: JSON.stringify(newUser)
     };
+    console.log('Fetch options:', options);
 
     fetch(API_URL('register'), options)
       .then((response) => response.json())
       .then((data) => {
+        console.log('Response data:', data);
         if (data.success) {
+          console.log('Registration success:', data.response);
+
           dispatch(user.actions.setUsername(data.response.username));
           dispatch(user.actions.setUserId(data.response._id));
           dispatch(user.actions.setRole(data.response.role));
@@ -71,6 +76,7 @@ export const RegistrationPage = () => {
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           setRegistrationSuccess(true);
         } else {
+          console.log('Registration failure:', data.response);
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
           dispatch(user.actions.setError(data.response));

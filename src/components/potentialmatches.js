@@ -21,7 +21,7 @@ export const Potential = () => {
   const [dislikedUsers, setDislikedUsers] = useState([]);
   const userId = useSelector((store) => store.user.userId);
   let accessToken = useSelector((store) => store.user.accessToken);
-  accessToken = !accessToken && localStorage.getItem('accessToken');
+  accessToken = !accessToken && localStorage.getItem('accessToken'); // If no accessToken, get it from localStorage instead of store (to prevent logout on page refresh) 
   const currentUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
@@ -40,15 +40,15 @@ export const Potential = () => {
           }
         };
 
-        const response = await fetch(API_URL(`users/${userId}`), options);
-        const data = await response.json();
+        const response = await fetch(API_URL(`users/${userId}`), options); // Fetch the current user data from the API
+        const data = await response.json(); // Convert the response data to JSON 
 
         if (data.success) {
-         const filteredUsers = data.response.users;
-         setMatchingList(filteredUsers);
-          dispatch(setError(null));
+         const filteredUsers = data.response.users; // Filter out the current user from the list of users returned from the API 
+         setMatchingList(filteredUsers); // Set the filtered list of users to state 
+          dispatch(setError(null)); // Clear any previous errors
         } else {
-          dispatch(setError(data.error));
+          dispatch(setError(data.error)); // Set error state if API request was unsuccessful
         }
       } catch (error) {
         dispatch(setError(error));
