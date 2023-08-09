@@ -56,6 +56,9 @@ const user = createSlice({
     setMatchedPersons: (store, action) => {
       store.matchedPersons = action.payload;
     },
+    setBackendError: (store, action) => {
+      store.backendError = action.payload;
+    },
 
     setAccessToken: (store, action) => {
       store.accessToken = action.payload;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -21,6 +22,8 @@ export const RegistrationPage = () => {
   const [role, setRole] = useState('');
   const [preferences, setPreferences] = useState([]);
   const [bio, setBio] = useState('');
+  const [backendError, setBackendError] = useState('');
+
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const dispatch = useDispatch();
@@ -83,6 +86,7 @@ export const RegistrationPage = () => {
           console.log('Registration failure:', data.response);
 
           if (data.message === 'Please enter a valid email address') {
+            setBackendError(data.message); // Set the backend error message
             setEmailError(data.message);
             setUsernameError(''); // Clear any previous username error
             setPasswordError(''); // Clear any previous password error
@@ -93,6 +97,10 @@ export const RegistrationPage = () => {
           } else if (data.message === 'Username already exists') {
             setUsernameError(data.message);
             setEmailError(''); // Clear any previous email error
+            setPasswordError(''); // Clear any previous password error
+          } else if (data.message === 'Email already exists') {
+            setEmailError(data.message); // Set the email error message
+            setUsernameError(''); // Clear any previous username error
             setPasswordError(''); // Clear any previous password error
           } else if (data.message === 'Password must be between 6 and 20 characters') {
             setPasswordError(data.message);
@@ -154,6 +162,8 @@ export const RegistrationPage = () => {
               placeholder="e-mail"
               onChange={(e) => setEmail(e.target.value)} />
             {emailError && <p className="error-message">{emailError}</p>}
+            {backendError && <p className="error-message">{backendError}</p>}
+
           </div>
           <div>
             <input type="text" value={firstName} placeholder="name" onChange={(e) => setFirstName(e.target.value)} />
