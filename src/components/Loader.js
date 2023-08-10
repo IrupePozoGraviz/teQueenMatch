@@ -12,7 +12,7 @@ const Loader = () => {
 
   return (
     <div className="loader">
-      <img src="./../assets/loading.svg" alt="Loading..." />
+      <img src="/assets/loading.svg" alt="loader" />
     </div>
   );
 };
