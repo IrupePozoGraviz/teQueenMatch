@@ -6,8 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import user from './reducers/User';
-// import { UserCard } from './TinderCardTest';
-// import LoginPage from './components/MockupLogin'
+import AuthRedirect from './components/AuthRedirect';
 import { Dashboard } from './components/DashBoard';
 import { EditProfilePage } from './components/EditProfilePage';
 import { Picture } from './components/profilePic'
@@ -30,6 +29,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route element={<AuthRedirect />} />
           <Route path="/" element={<Home />} />
           <Route path="/tinder-cards" element={<UserCard />} />
           {/* <Route path="/tinder-cards" element={<TinderCards />} /> */}

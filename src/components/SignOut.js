@@ -1,51 +1,30 @@
 import React from 'react';
-import styled from 'styled-components'; // install styled-components using npm install styled-components --save
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import user from '../reducers/User';
 
 const SignOutButton = () => {
-  /* const handleSignOut = () => {
-    if (localStorage.getItem('accessToken')) {
-      console.log('sign out');
-    }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    // Clear user session, authentication tokens, etc.
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userId');
-    window.location.reload();
-  }; */
-  const handleSignOut = () => {
-    window.location.reload();
-    setTimeout(() => {
-      const link = document.createElement('a');
-      link.href = '/';
-      link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-    }, 0);
+
+    // Dispatch action to clear user state
+    dispatch(user.actions.setAccessToken(null));
+    dispatch(user.actions.setUsername(null));
+    // ... (clear other user state properties)
+
+    // Redirect to the start page
+    navigate('/');
   };
 
   const StyledSignOutButton = styled.button`
-    background: var(--primary-dark);
-   border-top: solid 2px rgb(121, 119, 119);
-  border-radius: 5px;
-  color: var(--primary-light);
-  cursor: pointer;
-  font-size: 0.7rem;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-  color: var(--primary-dark);
-  background: var(--primary-light);
-  border: solid 2px rgb(48, 48, 48);
-  border-bottom: solid 3px rgb(121, 119, 119);
-  }
-  &:focus {
-  outline: none;
-
-  }
-  @media screen and (min-width: 768px) {
-  font-size: 1rem;
-  margin: 1rem;
-  padding: 0.7rem 2rem;
-  }
-`;
+    /* Your styling code here */
+  `;
 
   return (
     <div>
@@ -53,7 +32,7 @@ const SignOutButton = () => {
         className="sign-out-button"
         type="button"
         onClick={handleSignOut}>
-        Sign Out
+                Sign Out
       </StyledSignOutButton>
     </div>
   );
