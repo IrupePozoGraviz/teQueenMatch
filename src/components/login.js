@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-shadow */
@@ -11,11 +12,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import user from '../reducers/User'
 import { API_URL } from './Utils'
 import { RegistrationPage } from './registration'
+import Loader from './Loader'
 import './css/login.css'
 
 const LogIn = ({ setLogIn, isSignUp }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState(null)
+  const [isLoading, setIsLoading] = useState(false);
   const error = useSelector((store) => store.user.error);
   const login = 'login'; // this is the slug for the login endpoint
   const dispatch = useDispatch(); // install react-redux by running `npm i react-redux` in the terminal
@@ -36,6 +39,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const options = {
       method: 'POST',
       headers: {
@@ -47,6 +51,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Login Data:', data);
+        setIsLoading(false);
         if (data.success) {
           dispatch(user.actions.setUsername(data.response.username));
           dispatch(user.actions.setUserId(data.response._id));
@@ -75,7 +80,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
           <form onSubmit={handleSubmit} className="login-form">
             <input
               className="username-input"
-              type="username"
+              type="text"
               id="Username"
               name="Username"
               placeholder="username"
@@ -93,6 +98,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
               <input className="secondary-button" type="submit" />
             </div>
           </form>
+          {isLoading && <Loader />} {/* Show Loader when isLoading is true */}
           {error && <p className="error-message">{error}</p>}
         </>)}
       {isSignUp && (

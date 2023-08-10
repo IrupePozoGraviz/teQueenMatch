@@ -1,0 +1,13 @@
+
+.top-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-background);
+  color: var(--primary-light);
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}

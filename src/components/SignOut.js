@@ -23,8 +23,36 @@ const SignOutButton = () => {
   };
 
   const StyledSignOutButton = styled.button`
-    /* Your styling code here */
-  `;
+   margin-top: 0px;
+   margin-left: 20px;
+   border-radius: 16px;
+  background-color: rgb(234 216 231 / 90%);
+  align-self: flex-end;
+  border-top: solid 2px rgb(121, 119, 119);
+  
+  color: var(--primary - light);
+  cursor: pointer;
+  font-size: 0.7rem;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: var(--primary - dark);
+    background: var(--primary - light);
+    border: solid 2px rgb(48, 48, 48);
+    border-bottom: solid 3px rgb(121, 119, 119);
+  }
+  &:focus {
+    outline: none;
+
+  }
+  @media screen and(min-width: 768px) {
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 0.7rem 2rem;
+  }
+`;
 
   return (
     <div>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './LogedInNavStyleNew.css';
 import SignOutButton from './SignOut';
+import TopNavBar from './TopNavBar';
 
 const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { // navOne, navTwo, navThree, navFour, navFive are the names of the links in the nav bar that are passed in as props from the dashboard page (see Dashboard.js) and can be renamed to whatever you want. the purpurse of this is to make the nav bar reusable for other pages that need a nav bar with different links in it.
   const [isOpen, setIsOpen] = useState(false);
@@ -39,10 +40,7 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
             className="hamburger-icon" />
         )}
       </button>
-      <Link
-        to="/"
-        className="home-button">Home
-      </Link>
+      <TopNavBar />
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
@@ -67,12 +65,12 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
           </li>
         </ul>
       </div>
-      <div className="homebutton-container" />
       <div className="profile-container">
+        <p>Signed in as</p>
         <h1 className="user-name">{currentUser.username}</h1>
         <p className="role">{currentUser.role}</p>
+        <SignOutButton />
       </div>
-      <SignOutButton />
     </nav>
   );
 };
