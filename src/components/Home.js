@@ -3,11 +3,13 @@
 /* eslint-disable react/jsx-no-undef */
 // login knappar = authmodal = sign in
 import { React, /* useEffect, */ useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import Nav from './Nav'
 import LogIn from './login'
 import NavBarNew from './LogedInNavNew'
+import Loader from './Loader';
+import { setLoading } from '../reducers/actions';
 import './css/home.css'
 
 const Home = () => {
@@ -16,7 +18,7 @@ const Home = () => {
   const accessToken = useSelector((state) => state.user.accessToken);
   const currentUser = useSelector((store) => store.user);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -42,13 +44,19 @@ const Home = () => {
 
   const handleButtonClick = () => {
     if (!accessToken) {
+      dispatch(setLoading(true));
+
       handleClick();
       navigate('/registration'); // Navigate to the "/registration" route
+      setTimeout(() => {
+        dispatch(setLoading(false)); // Hide the loader
+      }, 2000); // Wait for 2 seconds
     }
   };
 
   return (
     <div className="overlay">
+      <Loader />
       {accessToken ? (
         <NavBarNew /> // If the user is logged in, show the navbar
       ) : null}

@@ -15,12 +15,14 @@ import { UserCard } from './components/Mockup';
 import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
 import { Liked } from './components/liked';
+import loadingReducer from './reducers/loader';
 import { Disliked } from './components/disliked';
 import { RegistrationPage } from './components/registration'
 
 export const App = () => {
   const reducer = combineReducers({
-    user: user.reducer
+    user: user.reducer,
+    loading: loadingReducer
   });
   const store = configureStore({ reducer });
 
