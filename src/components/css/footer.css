@@ -1,0 +1,28 @@
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 7rem;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #EEECFB;
+    color: #404167;
+    flex-direction: column;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 0.6rem;
+    color: grey;
+}
+
+/* ----- TABLET ------- */
+
+@media screen and (min-width: 768px) {
+    .footer-text {
+        font-size: 0.8rem;
+    }
+}

@@ -10,6 +10,7 @@ import LogIn from './login'
 import NavBarNew from './LogedInNavNew'
 import Loader from './Loader';
 import { setLoading } from '../reducers/actions';
+import Footer from './Footer';
 import './css/home.css'
 
 const Home = () => {
@@ -88,6 +89,7 @@ const Home = () => {
         <p className="primary-text"> Changing tech one mentorship at a time</p>
         <p className="primary-text">Sign up to find your mentor or mentee</p>
       </div>
+      <Footer />
     </div>
 
   )
