@@ -1,7 +1,6 @@
 // components/Loader.js
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './css/Loader.css';
 
 const Loader = () => {
   const isLoading = useSelector((state) => state.loading.isLoading);

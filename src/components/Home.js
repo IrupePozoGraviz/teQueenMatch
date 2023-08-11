@@ -10,7 +10,6 @@ import LogIn from './login'
 import NavBarNew from './LogedInNavNew'
 import Loader from './Loader';
 import { setLoading } from '../reducers/actions';
-import TopNavBar from './TopNavBar'
 import './css/home.css'
 
 const Home = () => {
@@ -57,7 +56,6 @@ const Home = () => {
 
   return (
     <div className="overlay">
-      <TopNavBar />
       <Loader />
       {accessToken ? (
         <NavBarNew /> // If the user is logged in, show the navbar

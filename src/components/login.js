@@ -40,6 +40,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsLoading(true);
+    console.log('isloading', isLoading);
     const options = {
       method: 'POST',
       headers: {
@@ -72,6 +73,7 @@ const LogIn = ({ setLogIn, isSignUp }) => {
 
   return (
     <div className="auth-modal">
+      {isLoading && <Loader />} {/* Show Loader when isLoading is true */}
       <div className="close-icon" onClick={handleClick}>ⓧ</div>
       {!isSignUp && (
         <>
@@ -98,7 +100,6 @@ const LogIn = ({ setLogIn, isSignUp }) => {
               <input className="secondary-button" type="submit" />
             </div>
           </form>
-          {isLoading && <Loader />} {/* Show Loader when isLoading is true */}
           {error && <p className="error-message">{error}</p>}
         </>)}
       {isSignUp && (
