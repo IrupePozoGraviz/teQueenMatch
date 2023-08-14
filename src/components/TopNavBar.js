@@ -9,14 +9,6 @@ const TopNavBar = () => {
         to="/"
         className="home-button">Home
       </Link>
-      <Link
-        to="/about"
-        className="about-button">About
-      </Link>
-      <Link
-        to="/contact"
-        className="contact-button">Contact
-      </Link>
 
     </div>
   );
