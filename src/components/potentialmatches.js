@@ -62,6 +62,7 @@ export const Potential = () => {
   }, [dispatch, userId, accessToken, likedUsers]);
 
   const handleLikePerson = (user) => {
+    console.log('hackerankan???', userId)
     const likePersonUserId = user._id;
     console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
     console.log('API URL:', API_URL(`likedPersons/${userId}`));

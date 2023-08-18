@@ -10,15 +10,11 @@
   flex-direction: column;
 }
 
-.home-button {
-  color: var(--primary-dark);
-  padding: 10px 15px;
-  margin: 10px;
-  border-radius: 16px;
-  background-color: rgb(234 216 231 / 90%);
-  align-self: flex-start;
-}
 
+/* .top-bar-container {
+display: flex;
+align-items: flex-start;
+} */
 .profile-container h1 {
   font-size: 1rem;
   padding: 10px 10px;
@@ -30,6 +26,14 @@
 .profile-container {
   margin-top: 20px;
 }
+ .toggle-button {
+   display: block;
+    position: absolute;
+   cursor: pointer;
+   border-radius: 12px;
+   border: none;
+
+ }
 
 .role {
   font-size: 1rem;
@@ -50,10 +54,6 @@
 
 }
 
-.toggle-button {
-  display: none;
-
-}
 
 .menu-nav {
   display: flex;
@@ -110,8 +110,10 @@
 }
 
 
-/* ---------- LARGE MOBILE SCREENS AND SMALLER TABLETS  ---------- */
-@media (max-width: 840px) {
+/* ---------- TABLETS  ---------- */
+@media screen and (max-width: 840px) {
+  
+}
 
   .toggle-button {
     display: block;
@@ -141,7 +143,7 @@
 
   .menu-nav {
     display: none;
-    position: absolute;
+    position: relative;
     top: 0%;
     right: 0%;
     padding: 10px;
@@ -187,8 +189,6 @@
 
   }
 
-}
-
 /*--------------- LARGER TABLETS (MIN-WIDTH 840PX) ---------------*/
 
 @media screen and (min-width: 840px) {
@@ -223,13 +223,13 @@
 @media (min-width: 1024px) {
 
 
-  .toggle-button {
-    display: none;
-  }
-
+/* 
   .hamburger-icon {
     display: none;
-  }
+  } */
+.menu-nav {
+  position: relative;
+}
 
   .ul-elements li a {
     font-size: 1.5rem;
