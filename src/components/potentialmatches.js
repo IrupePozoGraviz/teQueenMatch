@@ -25,8 +25,6 @@ export const Potential = () => {
   const currentUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  
-
   useEffect(() => {
     console.log("current user", currentUser)
     const fetchUsers = async () => {
@@ -39,8 +37,9 @@ export const Potential = () => {
             Authorization: accessToken
           }
         };
-
-        const response = await fetch(API_URL(`users/${userId}`), options); // Fetch the current user data from the API
+// fetching all potential matches for the current user from endpoint /potentialMatches/:userId 
+        
+        const response = await fetch(API_URL(`potentialMatches/${userId}`), options);
         const data = await response.json(); // Convert the response data to JSON 
 
         if (data.success) {
@@ -64,8 +63,10 @@ export const Potential = () => {
   const handleLikePerson = (user) => {
  
     const likePersonUserId = user._id;
+
     console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
     console.log('API URL:', API_URL(`likedPersons/${userId}`));
+
     fetch(API_URL(`likedpersons/${userId}`), {
       method: 'PATCH',
       headers: {

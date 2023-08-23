@@ -70,6 +70,7 @@ const Home = () => {
           setIsSignUp={setIsSignUp} />
 
         {isSignUp ? null : Login && <LogIn isSignup={isSignUp} setLogIn={setLogIn} />}
+        {accessToken}
         <button
           type="button"
           className="primary-button"
