@@ -70,7 +70,7 @@ export const Liked = () => {
         <p>No liked persons found.</p>
       ) : (
         likedPersons.map((user) => (
-          <div className="person-cardfinal" key={user.username}>
+          <div className="person-cardfinal" key={user.key}>
             <div className="liked-card">
               <div className="photo-containerfinal">
                 <img src={placeholder} alt="placeholder" />
