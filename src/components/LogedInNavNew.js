@@ -64,11 +64,17 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
           </li>
         </ul>
       </div>
-      <div className="profile-container">
-        <p>Signed in as</p>
-        <h1 className="user-name">{currentUser.username}</h1>
-        <p className="role">{currentUser.role}</p>
-      </div>
+      {currentUser.accessToken ? (
+        <div className="profile-container">
+          <p>Signed in as</p>
+          <h1 className="user-name">{currentUser.username}</h1>
+          <p className="role">{currentUser.role}</p>
+        </div>
+      ) : (
+        <div className="profile-container">
+          <p>Signed out</p>
+        </div>
+      )}
 
     </nav>
   );
