@@ -11,7 +11,7 @@ import NavBarNew from './LogedInNavNew';
 import { setLikedPersons } from '../reducers/User';
 import placeholder from '../images/placeholder.png';
 import { API_URL } from './Utils';
-import './/css/potentialmatches.css';
+import './css/potentialmatches.css';
 
 export const Liked = () => {
 
