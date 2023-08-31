@@ -2,6 +2,9 @@
 // make an database hardcoded to test the app with data of users with firstname, lastname, role, username, email, preferences, bio, image, likedUsers, dislikedUsers, and matches
 
 export const mentors = [
+
+]
+export const mentees = [
   {
     id: 1,
     firstName: 'Ru',
@@ -17,10 +20,7 @@ export const mentors = [
     likedUsers: [2, 3, 4],
     dislikedUsers: [5, 6, 7],
     matches: [8, 9, 10]
-  }
-
-]
-export const mentees = [
+  },
   {
     id: 1,
     firstName: 'Anna',

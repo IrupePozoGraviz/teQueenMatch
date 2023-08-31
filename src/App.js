@@ -11,7 +11,7 @@ import { Dashboard } from './components/DashBoard';
 import { EditProfilePage } from './components/EditProfilePage';
 import { Picture } from './components/profilePic'
 import Home from './components/Home';
-import { UserCard } from './components/Mockup';
+import { UserCard } from './mockup/mockup';
 import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
 import { Liked } from './components/liked';

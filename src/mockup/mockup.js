@@ -4,8 +4,8 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { mentees } from './UserData';
-import NavBarNew from './LogedInNavNew';
-import './Mockup.css';
+import NavBarNew from '../components/LogedInNavNew';
+import './mockup.css'; // import in the same folder as the component you want to style like this: import './Mockup.css';
 
 export const UserCard = () => {
   const [currentMenteeIndex, setCurrentMenteeIndex] = useState(0);
@@ -40,34 +40,34 @@ export const UserCard = () => {
 
     <div className="">
       <NavBarNew />
-      <div className="person-card">
-        <div className="profile-header">
+      <div className="person-card-mockup">
+        <div className="profile-header-mockup">
           <div className="Lizzo">
-            <p className="loged-in-name">Lizzo</p>
-            <p className="role-mentor">Mentor | </p>
+            <p className="loged-in-name-mockup">Lizzo</p>
+            <p className="role-mentor-mockup">Mentor | </p>
           </div>
-          <p className="loged-in-text">  | logged in</p>
+          <p className="loged-in-text-mockup">  | logged in</p>
         </div>
 
-        <div className="photo-container">
+        <div className="photo-container-mockup">
           <img src={menteesData.image} alt="mentee" />
         </div>
-        <div className="profile-info">
+        <div className="profile-info-mockup">
           <h3>{menteesData.firstName} {menteesData.lastName} {menteesData.emoji}</h3>
           <p>{menteesData.pronoun} / / {menteesData.role}</p>
           <p>{menteesData.bio}</p>
           <p>{menteesData.preferences}</p>
         </div>
       </div>
-      <div className="button-container">
+      <div className="button-container-mockup">
         <button
-          className="primary-button"
+          className="primary-button-mockup"
           type="button"
           onClick={() => handleLikePerson(menteesData.id)}>
                     Accept
         </button>
         <button
-          className="primary-button"
+          className="primary-button-mockup"
           type="button"
           onClick={() => handleDislikePerson(menteesData.id)}>
                     Decline

@@ -180,12 +180,6 @@ a {
   padding: 20px;
 }
 
-.Lizzo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .loged-in-text {
   color: lightblue;
 }
