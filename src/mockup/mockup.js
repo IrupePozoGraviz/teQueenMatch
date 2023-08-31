@@ -41,14 +41,11 @@ export const UserCard = () => {
     <div className="">
       <NavBarNew />
       <div className="person-card-mockup">
+        <h1 className="mockup-title">Mockup</h1>
         <div className="profile-header-mockup">
-          <div className="Lizzo">
-            <p className="loged-in-name-mockup">Lizzo</p>
-            <p className="role-mentor-mockup">Mentor | </p>
-          </div>
-          <p className="loged-in-text-mockup">  | logged in</p>
+          <p> Mentor |  | Signed in as</p>
+          <h2>Lizzo</h2>
         </div>
-
         <div className="photo-container-mockup">
           <img src={menteesData.image} alt="mentee" />
         </div>

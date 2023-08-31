@@ -1,5 +1,30 @@
 /* UserCard.css */
+.person-card-mockup {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
 
+.mockup-title {
+    position: absolute;
+    top: -30px;
+    /* Adjust this value to leave space for the title */;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 24px;
+    color: #de0ef5;
+    background-color: #5e555549;
+    padding: 10px 10px;
+    text-transform: uppercase;
+}
+
+.person-card-content {
+    position: relative;
+    z-index: 1;
+}
 .person-card-mockup {
     /* Add styles for the card container */
     border: 1px solid #ccc;
@@ -12,30 +37,28 @@
     /* Styles for the profile header */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content: flex-start;
+    margin: 10px;
+   
+}
+.profile-header-mockup p {
+    font-size: 16px;
+    color: #2c2b2b;
+    padding-right: 20px;
+}
+.profile-header-mockup h2 {
+    /* Styles for the role */
+    font-size: 16px;
+    color: #413b3b;
+    font-style: normal;
 }
 
-.loged-in-name-mockup {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.role-mentor-mockup {
-    font-size: 14px;
-    color: #888;
-}
-
-.loged-in-text-mockup {
-    font-size: 14px;
-    color: #888;
-}
 
 .photo-container-mockup img {
     /* Styles for the mentee's image */
     max-width: 100%;
     height: auto;
-    border-radius: 9%;
+    border-radius: 12px;
     margin-bottom: 10px;
 }
 
@@ -56,27 +79,29 @@
     /* Styles for the button container */
     display: flex;
     justify-content: space-between;
+    margin: 20px;
 }
 
 .primary-button-mockup {
     /* Styles for the primary buttons */
-    background-color: #007bff;
+    background-color: var(--primary-button-start);
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+    border-radius: 20px;
+
 }
 
 .primary-button-mockup:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-button-end)
 }
-/* UserCard.css */
 
-/* ... Previous styles ... */
+ /* Adjust styles for smaller screens (e.g., iPhone SE) */
 
-@media (max-width: 480px) {
-    /* Adjust styles for smaller screens (e.g., iPhone SE) */
+@media screen and (max-width: 480px) {
+   
 
     .person-card-mockup {
         padding: 10px;
