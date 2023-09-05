@@ -47,7 +47,7 @@ const SignOutButton = () => {
     outline: none;
 
   }
-  @media screen and(min-width: 768px) {
+  @media screen and(min-width: 840px) {
     font-size: 1rem;
     margin: 1rem;
     padding: 0.7rem 2rem;

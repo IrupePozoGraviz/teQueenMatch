@@ -127,7 +127,9 @@
   }
 
   .home-button {
-    margin-top: 0px;
+    font-size: 0.7rem;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
     border-radius: 16px;
     background-color: rgb(234 216 231 / 90%);
     align-self: flex-start;
@@ -212,7 +214,13 @@
     align-self: flex-start;
 
   }
-}
+  .home-button {
+        font-size: 1rem;
+          margin: 1rem;
+          padding: 0.7rem 2rem;
+        }
+  }
+
 
 /* ---------- DESKTOP (MIN-WIDTH 1024PX)  ---------- */
 
