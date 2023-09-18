@@ -18,14 +18,22 @@
 	float: right;
   }
   
-  .auth-modal input[type=password],
-  .auth-modal input[type=username] {
+  .auth-modal input[type=password] {
 	padding: 8px;
 	margin: 8px;
 	font-size: 17px;
   }
+
+.username{
+	padding: 8px;
+    margin: 8px;
+    font-size: 17px;
+  }
   
-  
+.cookie-text {
+font-size: 16px;
+text-align: left;
+}
   
 
 

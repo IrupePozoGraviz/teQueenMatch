@@ -7,7 +7,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import user from './reducers/User';
 import AuthRedirect from './components/AuthRedirect';
-import { Dashboard } from './components/DashBoard';
 import { EditProfilePage } from './components/EditProfilePage';
 import { Picture } from './components/profilePic'
 import Home from './components/Home';
@@ -16,7 +15,7 @@ import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
 import { Liked } from './components/liked';
 import loadingReducer from './reducers/loader';
-import { Disliked } from './components/disliked';
+
 import Loader from './components/Loader';
 import { RegistrationPage } from './components/registration'
 
@@ -36,15 +35,11 @@ export const App = () => {
           <Route element={<AuthRedirect />} />
           <Route path="/" element={<Home />} />
           <Route path="/tinder-cards" element={<UserCard />} />
-          {/* <Route path="/tinder-cards" element={<TinderCards />} /> */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          {/*     <Route path="/tinder-cards" element={<TinderCards />} /> */}
           <Route path="/edit" element={<EditProfilePage />} />
           <Route path="/picture" element={<Picture />} />
           <Route path="/pot" element={<Potential />} />
           <Route path="/matched" element={<Matched />} />
           <Route path="/liked" element={<Liked />} />
-          <Route path="/disliked" element={<Disliked />} />
           <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
       </BrowserRouter>

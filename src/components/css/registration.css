@@ -24,37 +24,32 @@
 	margin: 8px;
 	font-size: 17px;
   }
-  
+  .bio-text {
+	padding: 8px;
+	margin: 8px;
+	font-size: 17px;
+	width: 230px;
+	height:150px;
+  }
+  .select-role, .select-preferences {
+	width: 230px;
+	padding: 8px;
+	margin: 8px;
+	font-size: 17px;
+	width: 230px;
+  }
 
   .create-account select {
 	padding: 8px;
 	margin: 8px;
 	font-size: 17px;
   }
+
   
   .create-account select[multiple] {
 	height: auto;
   }
 
-.pref{
-margin-left: 65px;
-width: 250px;
-}
-
-.pref select {
-	display: flex;
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	background-color: #fff;
-	appearance: none;
-  }
-  
-  .pref select:focus {
-	outline: none;
-	border-color: #000;
-  }
   
   .error-message {
 	color: red;

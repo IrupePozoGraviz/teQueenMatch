@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-  --primary-background: linear-gradient(to bottom,
+  --primary-background: linear-gradient(to top,
       rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0) 100%);
   --secondary-background: linear-gradient(to bottom,
@@ -25,10 +25,9 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6.9px);
   -webkit-backdrop-filter: blur(6.9px);
-  border: 1px solid rgba(249, 9, 161, 0.6);
   --secondary-purple: rgb(129, 9, 183);
   --primary-dark: rgb(12, 24, 69);
-  --primary-light: rgba(242, 223, 239, 0.899);
+  --primary-light: rgba(223, 130, 209, 0.899);
   --primary-button-start: rgb(254, 48, 114);
   --primary-button-end: rgba(186, 103, 190, 0.767);
   --secondary-button-border: rgb(121, 119, 121);
@@ -101,39 +100,7 @@ a {
 
 /*-------- Home page --------*/
 
-/*-------- Login --------*/
-.auth-modal {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 360px;
-  height: 600px;
-  background-color: var(--secondary-light);
-  border-radius: 10px;
-  padding: 40px;
-}
 
-.auth-modal .close-icon {
-  float: right;
-}
-
-.auth-modal form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.auth-modal input[type=password],
-.auth-modal input[type=email] {
-  padding: 8px;
-  margin: 8px;
-  font-size: 17px;
-}
 
 
 

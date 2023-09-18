@@ -4,7 +4,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
-
+//Page
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NavBarNew from './LogedInNavNew';
@@ -46,15 +46,12 @@ export const Liked = () => {
       }
     } catch (error) {
       console.error(error);
-      // Handle the error state or display an error message to the user
     }
   };
 
   useEffect(() => {
     fetchLikedPersons();
-  }, []);
-  console.log('likedPersons:', likedPersons); // Log likedPersons
-  console.log('currentUser:', currentUser); 
+  }, []); 
 
 
   return (

@@ -9,16 +9,13 @@ const TopNavBar = () => {
 
   return (
     <div className="top-bar-container">
-      <Link
-        to="/"
-        className="home-button">Home
-      </Link>
+
       {currentUser.accessToken ? (
-        <SignOutButton /> // Render SignOutButton for logged-in user
+        <SignOutButton />
       ) : (
         <Link to="/login" className="login-button">
           Log In
-        </Link> // Render Log In link for logged-out user
+        </Link>
       )}
     </div>
   );

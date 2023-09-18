@@ -20,20 +20,19 @@ const LogIn = ({ setLogIn, isSignUp }) => {
   const [password, setPassword] = useState(null)
   const [isLoading, setIsLoading] = useState(false);
   const error = useSelector((store) => store.user.error);
-  const login = 'login'; // this is the slug for the login endpoint
-  const dispatch = useDispatch(); // install react-redux by running `npm i react-redux` in the terminal
+  const login = 'login';
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
 
-  // this handles the close button on the modal and sets the state to false to close the modal
   const handleClick = () => {
     setLogIn(false)
     console.log('clicked')
   }
-  // this useEffect checks if the user is logged in and redirects to the dashboard if they are logged in
+
   useEffect(() => {
     if (accessToken) {
-      navigate('/dashboard');
+      navigate('/pot');
     }
   }, [accessToken]);
 
@@ -73,15 +72,15 @@ const LogIn = ({ setLogIn, isSignUp }) => {
 
   return (
     <div className="auth-modal">
-      {isLoading && <Loader />} {/* Show Loader when isLoading is true */}
+      {isLoading && <Loader />}
       <div className="close-icon" onClick={handleClick}>ⓧ</div>
       {!isSignUp && (
         <>
           <h2>LOG IN</h2>
-          <p>By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
-          <form onSubmit={handleSubmit} className="login-form">
+          <p className="cookie-text">By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
+          <form onSubmit={handleSubmit}>
             <input
-              className="username-input"
+              className="username"
               type="text"
               id="Username"
               name="Username"
@@ -89,7 +88,6 @@ const LogIn = ({ setLogIn, isSignUp }) => {
               required
               onChange={(e) => setUsername(e.target.value)} />
             <input
-              className="password-input"
               type="password"
               id="password"
               name="password"

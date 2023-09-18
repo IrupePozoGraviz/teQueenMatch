@@ -22,7 +22,6 @@ export const Matched = () => {
   const dispatch = useDispatch();
 
   const matchedUsers = async () => {
-    console.log('currentUser:', currentUser)
     try {
       const options = {
         method: 'GET',
@@ -38,8 +37,6 @@ export const Matched = () => {
       }
       const data = await response.json();
 
-      console.log('API response:', data);
-
       if (data.success) {
         const matchedPersonsData = data.matchedPersons;
         dispatch(setMatchedPersons(matchedPersonsData));
@@ -52,19 +49,15 @@ export const Matched = () => {
     }
   };
 
-  // Call the function to fetch and display the matched persons
   useEffect(() => {
     matchedUsers();
   }, []);
-
-  console.log('matchedPersons:', matchedPersons);
-  console.log(currentUser);
 
   return (
     <div className="nav">
       <NavBarNew />
       <div className="header-container">
-        <h1>{`Here are your liked ${
+        <h1>{`Here are your matched ${
           currentUser.role === 'mentee' ? 'mentors' : 'mentees'
         }`}</h1>
       </div>

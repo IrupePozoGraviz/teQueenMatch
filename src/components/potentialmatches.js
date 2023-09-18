@@ -37,17 +37,16 @@ export const Potential = () => {
             Authorization: accessToken
           }
         };
-// fetching all potential matches for the current user from endpoint /potentialMatches/:userId 
-        
+
         const response = await fetch(API_URL(`potentialMatches/${userId}`), options);
-        const data = await response.json(); // Convert the response data to JSON 
+        const data = await response.json(); 
 
         if (data.success) {
-         const filteredUsers = data.response.users; // Filter out the current user from the list of users returned from the API 
-         setMatchingList(filteredUsers); // Set the filtered list of users to state 
-          dispatch(setError(null)); // Clear any previous errors
+         const filteredUsers = data.response.users;
+         setMatchingList(filteredUsers);
+          dispatch(setError(null));
         } else {
-          dispatch(setError(data.error)); // Set error state if API request was unsuccessful
+          dispatch(setError(data.error));
         }
       } catch (error) {
         dispatch(setError(error));
@@ -64,7 +63,7 @@ export const Potential = () => {
  
     const likePersonUserId = user._id;
 
-    console.log('likePersonUserId', likePersonUserId); // Log the likePersonUserId
+    console.log('likePersonUserId', likePersonUserId);
     console.log('API URL:', API_URL(`likedPersons/${userId}`));
 
     fetch(API_URL(`likedpersons/${userId}`), {
@@ -82,16 +81,16 @@ export const Potential = () => {
       return res.json();
     })
       .then((json) => {
-        console.log('Response:', json); // Log the response data
+        console.log('Response:', json);
         if (json.accessToken) {
           dispatch(setLikedPersons(json.likedPersons));
           setLikedUsers([...likedUsers, user._id])
         } else if (json.error) {
-          console.error('API error:', json.error); // Log the specific error message
+          console.error('API error:', json.error);
         }
       })
       .catch((error) => {
-        console.error('Error:', error); // Log the entire error object
+        console.error('Error:', error);
       });
   };
   

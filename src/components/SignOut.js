@@ -9,16 +9,12 @@ const SignOutButton = () => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    // Clear user session, authentication tokens, etc.
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userId');
 
-    // Dispatch action to clear user state
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setUsername(null));
-    // ... (clear other user state properties)
 
-    // Redirect to the start page
     navigate('/');
   };
 

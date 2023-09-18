@@ -4,13 +4,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TopNavBar from './TopNavBar';
-import './LogedInNavStyleNew.css';
+import './css/LogedInNavStyleNew.css';
 
-const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { // navOne, navTwo, navThree, navFour, navFive are the names of the links in the nav bar that are passed in as props from the dashboard page (see Dashboard.js) and can be renamed to whatever you want. the purpurse of this is to make the nav bar reusable for other pages that need a nav bar with different links in it.
+const NavBarNew = ({ navTwo, navThree, navFour, navFive, navSix }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const currentUser = useSelector((store) => store.user);
-  // this useEffect is for the menu to close when you click outside of it or scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsOpen(false);
@@ -21,7 +20,7 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isOpen]); // [isOpen is for the menu to close when you click outside of it or scroll]
+  }, [isOpen]);
 
   return (
     <nav
@@ -44,9 +43,6 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => { 
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
         <ul className="ul-elements">
-          <li className="li-elements">
-            <Link to="/dashboard">{navOne}Dashboard</Link>
-          </li>
           <li className="li-elements">
             <Link to="/edit">{navTwo}Edit Profile</Link>
           </li>

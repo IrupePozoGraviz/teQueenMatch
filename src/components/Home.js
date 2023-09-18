@@ -20,7 +20,6 @@ const Home = () => {
   const currentUser = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const handleSignOut = () => {
     if (localStorage.getItem('accessToken')) {
@@ -31,10 +30,7 @@ const Home = () => {
     window.location.reload();
   };
 
-  // this handleclick is not working
-
   const handleClick = () => {
-    console.log('handleClick triggered');
     if (accessToken) {
       handleSignOut(); // Call the sign-out action if the user is already logged in
     } else {
@@ -48,7 +44,7 @@ const Home = () => {
       dispatch(setLoading(true));
 
       handleClick();
-      navigate('/registration'); // Navigate to the "/registration" route
+      navigate('/registration');
       setTimeout(() => {
         dispatch(setLoading(false)); // Hide the loader
       }, 2000); // Wait for 2 seconds
@@ -59,7 +55,7 @@ const Home = () => {
     <div className="overlay">
       <Loader />
       {accessToken ? (
-        <NavBarNew /> // If the user is logged in, show the navbar
+        <NavBarNew />
       ) : null}
       <div className="headline-wrapper">
         <Nav

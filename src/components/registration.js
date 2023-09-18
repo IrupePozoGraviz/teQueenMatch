@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import user, { setError } from '../reducers/User';
 import { API_URL } from './Utils';
-import './css/createaccount.css';
+import './css/registration.css';
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -30,7 +30,6 @@ export const RegistrationPage = () => {
 
   useEffect(() => {
     if (registrationSuccess) {
-      // Redirect to the profile page after successful registration
       navigate('/dashboard');
     }
   }, [registrationSuccess, navigate]);
@@ -52,7 +51,6 @@ export const RegistrationPage = () => {
 
   const register = (event) => {
     event.preventDefault();
-    console.log('Register function triggered');
 
     const options = {
       method: 'POST',
@@ -61,7 +59,6 @@ export const RegistrationPage = () => {
       },
       body: JSON.stringify(newUser)
     };
-    console.log('Fetch options:', options);
 
     fetch(API_URL('register'), options)
       .then((response) => response.json())
@@ -83,29 +80,28 @@ export const RegistrationPage = () => {
           setRegistrationSuccess(true);
         } else {
           dispatch(setError(data.response));
-          console.log('Registration failure:', data.response);
 
           if (data.message === 'Please enter a valid email address') {
-            setBackendError(data.message); // Set the backend error message
+            setBackendError(data.message);
             setEmailError(data.message);
-            setUsernameError(''); // Clear any previous username error
-            setPasswordError(''); // Clear any previous password error
+            setUsernameError('');
+            setPasswordError('');
           } else if (data.message === 'Username must be between 2 and 30 characters') {
             setUsernameError(data.message);
-            setEmailError(''); // Clear any previous email error
-            setPasswordError(''); // Clear any previous password error
+            setEmailError('');
+            setPasswordError('');
           } else if (data.message === 'Username already exists') {
             setUsernameError(data.message);
-            setEmailError(''); // Clear any previous email error
-            setPasswordError(''); // Clear any previous password error
+            setEmailError('');
+            setPasswordError('');
           } else if (data.message === 'Email already exists') {
-            setEmailError(data.message); // Set the email error message
-            setUsernameError(''); // Clear any previous username error
-            setPasswordError(''); // Clear any previous password error
+            setEmailError(data.message);
+            setUsernameError('');
+            setPasswordError('');
           } else if (data.message === 'Password must be between 6 and 20 characters') {
             setPasswordError(data.message);
-            setUsernameError(''); // Clear any previous username error
-            setEmailError(''); // Clear any previous email error
+            setUsernameError('');
+            setEmailError('');
           }
 
           dispatch(user.actions.setAccessToken(null));
@@ -174,20 +170,21 @@ export const RegistrationPage = () => {
           </div>
           <div>
             <textarea
+              className="bio-text"
               type="text"
               value={bio}
-              placeholder="bio"
+              placeholder="Write something about yourself (max 200 characters)"
               onChange={(e) => setBio(e.target.value)} />
           </div>
           <div>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <select className="select-role" value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="">Select role</option>
               <option value="mentor">Mentor</option>
               <option value="mentee">Mentee</option>
             </select>
           </div>
-          <div className="pref">
-            <select value={preferences} onChange={handlePreferenceChange} multiple>
+          <div>{/* Select will be replaced by radiobuttons to be able to pick more than one option */}
+            <select className="select-preferences" value={preferences} onChange={handlePreferenceChange} multiple>
               <option value="">Select preferences</option>
               <option value="fullstack">Full Stack</option>
               <option value="frontend">Frontend</option>
