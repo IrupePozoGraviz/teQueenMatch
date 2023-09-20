@@ -173,12 +173,6 @@
 
   }
 
-  .li-elements:hover {
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
-    border-radius: 5px;
-  }
-
   .li-elements>a {
     padding: 5px;
     font-size: 20px;

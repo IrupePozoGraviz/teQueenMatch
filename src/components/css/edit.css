@@ -11,44 +11,17 @@
 
   }
  
-  .picture-container{
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	padding: 20px;
-	width: 100%;
-	overflow: hidden;
-  }
   
   .form-container {
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
 	padding: 20px;
 	width: 100%;
 	overflow: hidden;
 	
   }
-  /* IRRO JAG KOMMENTERADE UT DETTA PGA "PRIMARY OCH SECONDARY BUTTTONS FINNS REDAN I INDEX.CSS" OCH DENNA STYLING SKRIVER ÖVER DEN, DÖP OM KNAPPARNA OCH KOMMENTERA IN DEM  IGEN SÅ PÅVERKAS INTE STYLINGEN! :) /ANNIKA */
-  
-/*   .primary-button {
-	margin-top: 10px;
-	padding: 10px 20px;
-	width: 200px;
-	color: #fff;
-	border: solid 2px rgb(219, 219, 219);
-	
-	cursor: pointer;
-  }
-
-  .secondary-button {
-	display: flex;
-	width: 200px;
-	margin-left: 100px;
-
-  } */
+ 
 
   .form-container input {
 	margin: 10px 0;
@@ -87,4 +60,8 @@
 	padding: 10px;
 	width: 100%;
 	border: solid 2px rgb(219, 219, 219);
+  }
+
+.secondary-button{
+
   }

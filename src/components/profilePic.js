@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
@@ -7,6 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { API_URL } from './Utils';
+import './css/profilePic.css'
 
 export const Picture = () => {
   const [profilePicture, setProfilePicture] = useState(null);
@@ -95,7 +97,15 @@ export const Picture = () => {
   return (
     <div className="picture-container">
       {profilePicture && <img src={profilePicture} alt="Profile" />}
-      <input type="file" onChange={handleFileChange} />
+      <div className="picture-container-input">
+        <label htmlFor="fileInput">Select a file to upload:</label>
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          style={{ display: 'none' }}
+          onChange={handleFileChange} />
+      </div>
       <button className="secondary-button" type="submit" onClick={uploadProfilePic}>Upload Picture</button>
       <button className="secondary-button" type="submit" onClick={deleteProfilePic}>Delete Picture</button>
     </div>

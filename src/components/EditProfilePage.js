@@ -137,6 +137,7 @@ export const EditProfilePage = () => {
         </form>
       </section>
       <button className="secondary-button" type="submit" onClick={handleDeleteProfile}>Delete Profile</button>
-    </div></>
+    </div>
+    </>
   );
 };
