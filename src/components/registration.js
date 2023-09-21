@@ -30,7 +30,7 @@ export const RegistrationPage = () => {
 
   useEffect(() => {
     if (registrationSuccess) {
-      navigate('/dashboard');
+      navigate('/pot');
     }
   }, [registrationSuccess, navigate]);
 

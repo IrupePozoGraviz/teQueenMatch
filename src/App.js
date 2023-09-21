@@ -34,6 +34,7 @@ export const App = () => {
         <Routes>
           <Route element={<AuthRedirect />} />
           <Route path="/" element={<Home />} />
+          <Route path="/matches" element={<Matched />} />
           <Route path="/tinder-cards" element={<UserCard />} />
           <Route path="/edit" element={<EditProfilePage />} />
           <Route path="/picture" element={<Picture />} />

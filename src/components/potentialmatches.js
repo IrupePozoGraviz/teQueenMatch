@@ -64,9 +64,9 @@ export const Potential = () => {
     const likePersonUserId = user._id;
 
     console.log('likePersonUserId', likePersonUserId);
-    console.log('API URL:', API_URL(`likedPersons/${userId}`));
+    console.log('API URL:', API_URL(`like/${userId}`));
 
-    fetch(API_URL(`likedpersons/${userId}`), {
+    fetch(API_URL(`like/${userId}`), {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ export const Potential = () => {
 <h1>{`Here are your potential ${currentUser.role === 'mentee' ? 'mentors' : 'mentees'}`}</h1>
 </div>
           {loading ? (
-            'Loading...'
+            'Loading your potential matches..'
           ) : (
             <div className="card-container">
                

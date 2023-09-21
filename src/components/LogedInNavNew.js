@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import TopNavBar from './TopNavBar';
 import './css/LogedInNavStyleNew.css';
 
-const NavBarNew = ({ navTwo, navThree, navFour, navFive, navSix }) => {
+const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const currentUser = useSelector((store) => store.user);
@@ -43,6 +43,9 @@ const NavBarNew = ({ navTwo, navThree, navFour, navFive, navSix }) => {
         className={`menu-nav ${isOpen ? 'open' : ''}`}
         ref={navRef}>
         <ul className="ul-elements">
+          <li className="li-elements">
+            <Link to="/matches">{navOne}Matches</Link>
+          </li>
           <li className="li-elements">
             <Link to="/edit">{navTwo}Edit Profile</Link>
           </li>

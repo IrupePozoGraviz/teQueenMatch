@@ -13,7 +13,7 @@ const TopNavBar = () => {
       {currentUser.accessToken ? (
         <SignOutButton />
       ) : (
-        <Link to="/login" className="login-button">
+        <Link to="/" className="login-button">
           Log In
         </Link>
       )}
