@@ -1,3 +1,17 @@
+/*Mobile*/
+@media screen and (max-width: 480px) {
+    /* styles for small phones in portrait */
+.headline{
+    padding-left: 35px;   
+    padding-right: 20px;
+}
+.headline h1{
+    font-size: 2.5rem;
+
+}
+
+}
+
 .home-wrapper {
     display: flex;
     flex-direction: column;
