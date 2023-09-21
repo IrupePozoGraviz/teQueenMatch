@@ -138,9 +138,6 @@ export const Potential = () => {
                         <p key={index}>{pref}</p>
                       ))}
                       </div>
-                      <div className="emojis">
-                      <p>👩🏽‍🌾💂🏼‍♂️🧑🏻‍🎓</p>
-                      </div>
                     </div>
                     <section className="button-container">
                       <button
