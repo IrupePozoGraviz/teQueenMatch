@@ -44,3 +44,5 @@ We're committed to improving TechConnect continuously. Here are some areas we're
 - **Middleware Handling**: We're working to gracefully handle middleware and ensure smoother operation.
 
 Thank you for checking out teQueenMatch. We hope this platform makes a positive impact on underrepresented groups in the tech industry. If you have any questions or suggestions, feel free to reach out. Together, we can make the tech community more inclusive and supportive.
+
+Watch teQueenMatch live: https://annikalindberg-portfolio.netlify.app/
