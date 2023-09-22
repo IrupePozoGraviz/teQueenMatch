@@ -1,6 +1,6 @@
-# TechConnect - Connecting Underrepresented Techies
+# teQueenMatch - Connecting Underrepresented Techies
 
-Welcome to TechConnect, a web application that aims to bridge the gap in the tech industry by connecting women and non-binary individuals from underrepresented groups. Our platform is built using React.js on the frontend, Node.js, Redux, and MongoDB on the backend. This README will provide you with an overview of the project, its goals, technologies used, and future plans.
+Welcome to teQueenMatch, a web application that aims to bridge the gap in the tech industry by connecting women and non-binary individuals from underrepresented groups. Our platform is built using React.js on the frontend, Node.js, Redux, and MongoDB on the backend. This README will provide you with an overview of the project, its goals, technologies used, and future plans.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -11,7 +11,7 @@ Welcome to TechConnect, a web application that aims to bridge the gap in the tec
 
 ## Project Overview
 
-TechConnect is born out of a shared vision to create a digital space where individuals from underrepresented groups in the tech industry can connect, network, and foster mentorship relationships. We recognized the need for a platform that caters specifically to the unique experiences and challenges faced by women and non-binary individuals in tech.
+TeQueenMatch is born out of a shared vision to create a digital space where individuals from underrepresented groups in the tech industry can connect, network, and foster mentorship relationships. We recognized the need for a platform that caters specifically to the unique experiences and challenges faced by women and non-binary individuals in tech.
 
 ### Features
 - **User Profiles**: Create and customize your profile to highlight your interests, experiences, and preferences.
@@ -29,7 +29,7 @@ TechConnect is born out of a shared vision to create a digital space where indiv
 
 ## Development Process
 
-TechConnect was developed from the ground up by our dedicated team. We believed in its importance and worked tirelessly, even with some delays, to make it a reality within a three-week timeframe.
+TeQueenMatch was developed from the ground up by our dedicated team. We believed in its importance and worked tirelessly, even with some delays, to make it a reality within a three-week timeframe.
 
 ## Deployment
 
@@ -43,4 +43,4 @@ We're committed to improving TechConnect continuously. Here are some areas we're
 - **User Experience**: We plan to implement loaders in appropriate places to enhance the user experience.
 - **Middleware Handling**: We're working to gracefully handle middleware and ensure smoother operation.
 
-Thank you for checking out TechConnect. We hope this platform makes a positive impact on underrepresented groups in the tech industry. If you have any questions or suggestions, feel free to reach out. Together, we can make the tech community more inclusive and supportive.
+Thank you for checking out teQueenMatch. We hope this platform makes a positive impact on underrepresented groups in the tech industry. If you have any questions or suggestions, feel free to reach out. Together, we can make the tech community more inclusive and supportive.
