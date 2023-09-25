@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+/*-------- Global --------*/
 
 html,
 body {
@@ -8,7 +12,7 @@ body {
 }
 
 * {
-  font-family: 'Readex Pro', sans-serif;
+  font-family: 'DM Serif Display', serif;
   box-sizing: border-box;
 }
 
@@ -39,11 +43,9 @@ body {
 
 
 
-h2 {
-  font-style: italic;
+p {
+  font-family: 'Kaisei Decol', serif;
 }
-
-
 a {
   text-decoration: none;
   color: inherit;
@@ -53,19 +55,21 @@ a {
 .primary-button,
 .secondary-button {
   color: rgb(255, 255, 255);
-  text-transform: uppercase;
-  font-size: 15px;
+/*   text-transform: uppercase; */
+font-family: 'Kaisei Decol', serif;
+  font-size: 17px;
   padding: 12px 30px;
   border-radius: 30px;
   border: none;
   border-top: solid 2px rgb(121, 119, 119);
-  width: 200px;
+  width: 250px;
   margin: 10px;
+  letter-spacing: 1px;
   /* Adjust the width to your desired value */
 }
 .primary-button {
-
   background: linear-gradient(45deg, var(--primary-button-end), var(--secondary-light));
+
 
 }
 
@@ -80,7 +84,7 @@ a {
 .secondary-button {
   color: var(--primary-dark);
   background: linear-gradient(45deg, var(--secondary-button-end), var(--secondary-button-start));
-  font-weight: 500;
+
  
 }
 

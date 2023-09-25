@@ -25,19 +25,21 @@ const NavBarNew = ({ navOne, navTwo, navThree, navFour, navFive, navSix }) => {
   return (
     <nav
       className="styled-nav-bar">
-      <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? (
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/close.png`}
-            alt="Close Icon"
-            className="close-icon" />
-        ) : (
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/Hamburger_icon.png`}
-            alt="Hamburger Icon"
-            className="hamburger-icon" />
-        )}
-      </button>
+      <div className="hamburger-container">
+        <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? (
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/close.png`}
+              alt="Close Icon"
+              className="close-icon" />
+          ) : (
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/Hamburger_icon.png`}
+              alt="Hamburger Icon"
+              className="hamburger-icon" />
+          )}
+        </button>
+      </div>
       <TopNavBar />
       <div
         className={`menu-nav ${isOpen ? 'open' : ''}`}

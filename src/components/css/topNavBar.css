@@ -1,7 +1,6 @@
 
 .top-bar-container {
   display: flex;
-  /* align-self: center; */
   justify-content: space-between;
   margin-right: auto;
   flex-direction: column;

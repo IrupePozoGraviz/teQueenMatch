@@ -20,6 +20,11 @@
 .profile-container {
   margin-top: 20px;
 }
+.hamburger-container {
+  display: flex;
+  align-self: end;
+  margin-right: 70px;
+}
  .toggle-button {
    display: block;
     position: absolute;

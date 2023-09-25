@@ -84,7 +84,6 @@ const Home = () => {
         </div>
 
         <p className="primary-text"> Changing tech one mentorship at a time</p>
-        <p className="primary-text">Sign up to find your mentor or mentee</p>
       </div>
       <Footer />
     </div>

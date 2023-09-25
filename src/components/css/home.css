@@ -1,11 +1,10 @@
-/*Mobile*/
+/* Mobile screen max-size 481px */
+
 .home-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center horizontally */
     justify-content: center;
-    /* Center vertically */
     padding-top: 200px;
 }
 
@@ -15,6 +14,12 @@
     font-weight: 500;
     margin: 0;
     padding: 0;
+}
+.primary-text {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    font-weight: 400;
+    font-family: 
 }
 
 .copyright-icon {
@@ -65,10 +70,9 @@
     top: 50%;
 }
 
-
-
+/* styles for phones in landscape and some tablets in portrait */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-    /* styles for phones in landscape and some tablets in portrait */
+    
     .headline{
         padding-left: 35px;   
         padding-right: 20px;
@@ -78,33 +82,35 @@
     
     }
     .primary-text{
-        font-size: 1.45rem;
+        font-size: 1rem;
     }
     .headline-wrapper{
         padding-top: 190px;
     }
 }
 
+/* styles for tablets in landscape and small desktop monitors */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    /* styles for tablets in landscape and small desktop monitors */
+    .headline-wrapper{
+        padding-top: 150px;
+    }
     .headline{
         padding-left: 35px;   
         padding-right: 20px;
-        padding-top: 50px;
+        padding-top: 30px;
     }
     .headline h1{
         font-size: 5rem;
     
     }
     .primary-text{
-        font-size: 1.45rem;
+        font-size: 1.2rem;
     }
-    .headline-wrapper{
-        padding-top: 240px;
-    }
-}
+   
+}   
+
+/* styles for medium-sized desktop monitors */
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-    /* styles for medium-sized desktop monitors */
    
     
     .primary-title {
@@ -122,8 +128,8 @@
         font-size: 1.45rem;
     }
 
+/* styles for large desktop monitors and above */
     @media screen and (min-width: 1201px) {
-        /* styles for large desktop monitors and above */
     .primary-title {
         font-size: 5rem;
     }
@@ -135,9 +141,6 @@
         align-items: center;
     
     }
-/*.headline h1{
-            font-size: 7rem;
-        }*/
       
     .headline-wrapper {
         padding-top: 200px;
