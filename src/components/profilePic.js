@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { API_URL } from './Utils';
-import './css/profilePic.css'
+import './css/profilePic.css';
 
 export const Picture = () => {
   const [profilePicture, setProfilePicture] = useState(null);
@@ -16,34 +16,44 @@ export const Picture = () => {
   const userId = useSelector((store) => store.user.userId);
   const accessToken = useSelector((store) => store.user.accessToken) || localStorage.getItem('accessToken');
 
-  useEffect(() => {
-    const fetchProfilePic = async () => {
-      try {
-        const options = {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: accessToken
-          }
-        };
-        const response = await fetch(API_URL(`user/${userId}/profile-picture`), options);
-        if (response.ok) {
-          const pictureBlob = await response.blob();
-          const pictureUrl = URL.createObjectURL(pictureBlob);
-          setProfilePicture(pictureUrl);
-        } else {
-          console.log('Failed to fetch profile picture:', response.status);
+  const fetchProfilePic = async () => {
+    try {
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: accessToken
         }
-      } catch (error) {
-        console.log('Error fetching profile picture:', error);
+      };
+      const response = await fetch(API_URL(`user/${userId}/profile-picture`), options);
+      if (response.ok) {
+        const pictureBlob = await response.blob();
+        const pictureUrl = URL.createObjectURL(pictureBlob);
+        setProfilePicture(pictureUrl);
+      } else {
+        console.log('Failed to fetch profile picture:', response.status);
       }
-    };
+    } catch (error) {
+      console.log('Error fetching profile picture:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchProfilePic();
   }, [userId, accessToken]);
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    if (file) {
+      const previewUrl = URL.createObjectURL(file);
+      setProfilePicture(previewUrl);
+    }
+  };
+
+  const cancelPreview = () => {
+    setSelectedFile(null);
+    fetchProfilePic();
   };
 
   const uploadProfilePic = async () => {
@@ -103,10 +113,10 @@ export const Picture = () => {
           type="file"
           id="fileInput"
           accept="image/*"
-          style={{ display: 'none' }}
           onChange={handleFileChange} />
       </div>
       <button className="secondary-button" type="submit" onClick={uploadProfilePic}>Upload Picture</button>
+      {selectedFile && <button className="secondary-button" type="button" onClick={cancelPreview}>Cancel Preview</button>}
       <button className="secondary-button" type="submit" onClick={deleteProfilePic}>Delete Picture</button>
     </div>
   );

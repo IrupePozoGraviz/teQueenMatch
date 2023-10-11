@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from './Utils';
 import { setError, setLikedPersons } from '../reducers/User';
 import NavBarNew from './LogedInNavNew';
-import placeholder from '../images/placeholder.png';
+// import placeholder from '../images/placeholder.png';
 import './/css/potentialmatches.css';
 
 
@@ -120,11 +120,15 @@ export const Potential = () => {
                   <div
                     className="person-cardfinal"
                     key={user.username}>
-                    <div className="photo-containerfinal">
-                      <img
-                        src= {placeholder}
-                        alt="placeholder" />
-                    </div>
+                    {
+  /* 
+  <div className="photo-containerfinal">
+    <img
+      src={placeholder}
+      alt="placeholder" />
+  </div> 
+  */
+}
                     <div className="profile-infofinal">
                       <div className="name-containerfinal">
                       <p>{user.username} // {user.role}</p>
