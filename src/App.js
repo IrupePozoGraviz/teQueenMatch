@@ -15,7 +15,6 @@ import { Potential } from './components/potentialmatches';
 import { Matched } from './components/matched';
 import { Liked } from './components/liked';
 import loadingReducer from './reducers/loader';
-
 import Loader from './components/Loader';
 import { RegistrationPage } from './components/registration'
 
@@ -24,6 +23,7 @@ export const App = () => {
     user: user.reducer,
     loading: loadingReducer
   });
+
   const store = configureStore({ reducer });
 
   return (

@@ -7,37 +7,91 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from './Utils';
 import { Picture } from './profilePic';
 import NavBarNew from './LogedInNavNew';
+import { setError, setFirstName, setLastName, setEmail, setUsername, setRole, setPreferences, setBio } from '../reducers/User';
+import { setLoading } from '../reducers/actions';
 import './css/edit.css'
 
 export const EditProfilePage = () => {
-  const navigate = useNavigate();
+  const currentUser = useSelector((store) => store.user);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [role, setRole] = useState('');
+  const [bio, setBio] = useState('');
   const [preferences, setPreferences] = useState([]);
   const userId = useSelector((store) => store.user.userId);
   let accessToken = useSelector((store) => store.user.accessToken);
   accessToken = !accessToken && localStorage.getItem('accessToken');
-  console.log('accessToken', accessToken)
-  console.log('userId', userId)
+
+  // function to handle the form submit event
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(setLoading(true));
+   
+    const updatedUser = {
+      username,
+      password,
+      email,
+      firstName,
+      lastName,
+      role,
+      preferences,
+      bio
+    };
+
+  fetch(API_URL(`user/${currentUser.userId}`), {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': currentUser.accessToken
+    },
+    body: JSON.stringify(updatedUser)
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.success) {
+      // Update Redux store
+      dispatch(setUsername(data.response.username));
+      dispatch(setFirstName(data.response.firstName));
+      dispatch(setLastName(data.response.lastName));
+      dispatch(setEmail(data.response.email));
+      dispatch(setRole(data.response.role));
+      dispatch(setPreferences(data.response.preferences));
+      dispatch(setBio(data.response.bio));
+      // Redirect to the profile page after successful profile update
+      navigate('/profile');
+    } else {
+      dispatch(setError(data.message));
+    }
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    dispatch(setError('Failed to update profile'));
+  })
+  .finally(() => {
+    dispatch(setLoading(false));
+  });
+};
+
+
   const handlePreferenceChange = (e) => {
     const selectedPreferences = Array.from(e.target.selectedOptions, (option) => option.value);
     setPreferences(selectedPreferences);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    try {
+
+    /* try {
       const response = await fetch(API_URL(`user/${userId}`), {
         method: 'PUT',
         headers: {
@@ -67,6 +121,7 @@ export const EditProfilePage = () => {
       console.log('Network error:', error);
     }
   };
+  */
 
   const handleDeleteProfile = async () => {
     if (window.confirm('Are you sure you want to delete your profile?')) {
@@ -90,7 +145,7 @@ export const EditProfilePage = () => {
         console.log('Network error:', error);
       }
     }
-  };
+  }; 
 
   return (
     <>
@@ -99,7 +154,10 @@ export const EditProfilePage = () => {
         <div className="header-container">
       <h2>Settings</h2>
       </div>
-      <Picture className="picture-container" />
+        <Picture className="picture-container" />
+        {currentUser.error && <p className="error-message">{currentUser.error}</p>}
+{currentUser.isLoading && <p>Loading...</p>}
+
       <section className="form-container">
         <form onSubmit={handleSubmit}>
           <div>
@@ -116,7 +174,10 @@ export const EditProfilePage = () => {
           </div>
           <div>
             <input type="text" value={lastName} placeholder="lastname" onChange={(e) => setLastName(e.target.value)} />
-          </div>
+            </div>
+            <div>
+              <input type="text" value={bio} placeholder="bio" onChange={(e) => setBio(e.target.value)} />
+            </div>
           <div className="multiple-input-container">
             <select value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="">Select role</option>
@@ -129,11 +190,12 @@ export const EditProfilePage = () => {
             <select multiple value={preferences} onChange={handlePreferenceChange}>
               <option value="fullstack">Full Stack</option>
               <option value="frontend">Frontend</option>
-              <option value="backend">Backend</option>
+                <option value="backend">Backend</option>
+            
               {/* Add other preference options here */}
             </select>
           </div>
-          <button className="primary-button" type="submit">Save</button>
+          <button className="primary-button" type="submit">Save Changes</button>
         </form>
       </section>
       <button className="secondary-button" type="submit" onClick={handleDeleteProfile}>Delete Profile</button>
