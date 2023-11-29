@@ -68,7 +68,7 @@ export const Picture = () => {
       const options = {
         method: 'POST',
         headers: {
-          Authorization: accessToken
+          Authorization: `Bearer ${accessToken}` // Ensure this is the format expected by your backend
         },
         body: formData
       };
@@ -77,7 +77,8 @@ export const Picture = () => {
         console.log('Profile picture uploaded successfully!');
         setProfilePicture(URL.createObjectURL(selectedFile));
       } else {
-        console.log('Failed to upload profile picture:', response.status);
+        const errorBody = await response.text(); // Get more details if possible
+        console.log('Failed to upload profile picture:', response.status, errorBody);
       }
     } catch (error) {
       console.log('Error uploading profile picture:', error);
